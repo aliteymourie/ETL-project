@@ -1,0 +1,18 @@
+# config/settings.yaml
+app:
+  environment: "development"
+  log_level: "DEBUG"
+
+etl:
+  sales:
+    chunk_size: 1000
+    retries: 3
+    retry_delay_seconds: 10
+  inventory:
+    chunk_size: 5000
+  accounting:
+    chunk_size: 5000
+
+paths:
+  checkpoints: "data/checkpoints"
+  logs: "logs/etl"

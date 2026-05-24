@@ -1,0 +1,3588 @@
+{
+    "AghlamNazdik": {
+        "columns": {
+            "ccAghlamNazdik": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccMarkazPakhsh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "AzTarikh": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "TaTarikh": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Tedad": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "TarikhEngheza": {
+                "data_type": "datetime",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccAghlamNazdik"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccMarkazPakhsh",
+                "referenced_schema": "Global",
+                "referenced_table": "MarkazPakhsh",
+                "referenced_column": "ccMarkazPakhsh",
+                "constraint_name": "FK_AghlamNazdik_MarkazPakhsh"
+            }
+        ]
+    },
+    "Anbar": {
+        "columns": {
+            "ccAnbar": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccMarkazPakhsh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "NameAnbar": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            },
+            "CodeNoeAnbar": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccAddress": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Telephone": {
+                "data_type": "varchar",
+                "max_length": 50
+            },
+            "Fax": {
+                "data_type": "varchar",
+                "max_length": 50
+            },
+            "CodeNoeSys": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccAnbar"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccAddress",
+                "referenced_schema": "Global",
+                "referenced_table": "Address",
+                "referenced_column": "ccAddress",
+                "constraint_name": "FK_Anbar_Address"
+            },
+            {
+                "column_name": "ccMarkazPakhsh",
+                "referenced_schema": "Global",
+                "referenced_table": "MarkazPakhsh",
+                "referenced_column": "ccMarkazPakhsh",
+                "constraint_name": "FK_Anbar_MarkazPakhsh"
+            }
+        ]
+    },
+    "Anbar14001224": {
+        "columns": {
+            "ccAnbar": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccMarkazPakhsh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "NameAnbar": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            },
+            "CodeNoeAnbar": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccAddress": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Telephone": {
+                "data_type": "varchar",
+                "max_length": 50
+            },
+            "Fax": {
+                "data_type": "varchar",
+                "max_length": 50
+            },
+            "CodeNoeSys": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            }
+        },
+        "primary_keys": [],
+        "foreign_keys": []
+    },
+    "AnbarBeAnbar": {
+        "columns": {
+            "ccAnbarAz": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccAnbarBe": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccAnbarAz",
+            "ccAnbarBe"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccAnbarBe",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "Anbar",
+                "referenced_column": "ccAnbar",
+                "constraint_name": "FK_AnbarBeAnbar_Anbar1"
+            },
+            {
+                "column_name": "ccAnbarAz",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "Anbar",
+                "referenced_column": "ccAnbar",
+                "constraint_name": "FK_AnbarBeAnbar_Anbar"
+            }
+        ]
+    },
+    "AnbarGardany": {
+        "columns": {
+            "ccMarkazPakhsh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccAnbar": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccAnbarGardany": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Shomareh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "TarikhShoro": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "TarikhPaian": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "Sharh": {
+                "data_type": "nchar",
+                "max_length": 100
+            },
+            "CodeVazeiat": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "CodeNoe": {
+                "data_type": "tinyint",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccAnbarGardany"
+        ],
+        "foreign_keys": []
+    },
+    "AnbarGardanyShomaresh": {
+        "columns": {
+            "ccAnbarGardany": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccAnbarGardanyShomaresh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Shomaresh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "TarikhShoro": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "TarikhPaian": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "NoeShomaresh": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccAnbarGardanyShomaresh"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccAnbarGardany",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "AnbarGardany",
+                "referenced_column": "ccAnbarGardany",
+                "constraint_name": "FK_AnbarGardany_Shomaresh_AnbarGardany"
+            },
+            {
+                "column_name": "ccAnbarGardanyShomaresh",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "AnbarGardanyShomaresh",
+                "referenced_column": "ccAnbarGardanyShomaresh",
+                "constraint_name": "FK_AnbarGardanyShomaresh_AnbarGardanyShomaresh"
+            }
+        ]
+    },
+    "AnbarGardanyShomareshKala": {
+        "columns": {
+            "ccAnbarGardanyShomaresh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccAnbarGardanyShomareshKala": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccAnbarGhesmat": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ShomarehBach": {
+                "data_type": "nvarchar",
+                "max_length": 20
+            },
+            "TarikhTolid": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "TarikhEngheza": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "TedadComputer": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "TedadGhably": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "TedadJary": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ShomarehSerial": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "TedadJaryTemp": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "UserId": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccAnbarGardanyShomareshKala"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccAnbarGardanyShomaresh",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "AnbarGardanyShomaresh",
+                "referenced_column": "ccAnbarGardanyShomaresh",
+                "constraint_name": "FK_AnbarGardanyShomareshKala_AnbarGardanyShomaresh"
+            }
+        ]
+    },
+    "AnbarGhesmat": {
+        "columns": {
+            "ccAnbar": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccAnbarGhesmat": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "NameGhesmat": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            },
+            "Tabagheh": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "Rahro": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "Ghafaseh": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "Satr": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "Soton": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "Tol": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Arz": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Ertefa": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "ccVahedSize": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "VaznGhabeleTahamol": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "ccVahedVazn": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccAnbarGhesmat"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccAnbar",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "Anbar",
+                "referenced_column": "ccAnbar",
+                "constraint_name": "FK_AnbarGhesmat_Anbar"
+            },
+            {
+                "column_name": "ccVahedSize",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "Vahed",
+                "referenced_column": "ccVahed",
+                "constraint_name": "FK_AnbarGhesmat_Vahed"
+            },
+            {
+                "column_name": "ccVahedVazn",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "Vahed",
+                "referenced_column": "ccVahed",
+                "constraint_name": "FK_AnbarGhesmat_Vahed1"
+            }
+        ]
+    },
+    "BarNameh": {
+        "columns": {
+            "ccMarkazPakhsh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccBarNameh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ShomarehBarnameh": {
+                "data_type": "nvarchar",
+                "max_length": 15
+            },
+            "TarikhBarnameh": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "ShomarehBimeh": {
+                "data_type": "nvarchar",
+                "max_length": 15
+            },
+            "TarikhBimeh": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "RialBimeh": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "SherkatBimeh": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            },
+            "NameBarbary": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            },
+            "ShomarehMashin": {
+                "data_type": "nvarchar",
+                "max_length": 10
+            },
+            "NameRanandeh": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccBarNameh"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccMarkazPakhsh",
+                "referenced_schema": "Global",
+                "referenced_table": "MarkazPakhsh",
+                "referenced_column": "ccMarkazPakhsh",
+                "constraint_name": "FK_BarNameh_MarkazPakhsh"
+            }
+        ]
+    },
+    "BarNamehSatr": {
+        "columns": {
+            "ccRefrence": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccBarnameh": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccRefrence",
+            "ccBarnameh"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccBarnameh",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "BarNameh",
+                "referenced_column": "ccBarNameh",
+                "constraint_name": "FK_BarNamehSatr_BarNameh"
+            }
+        ]
+    },
+    "Brand": {
+        "columns": {
+            "ccBrand": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "NameBrand": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            }
+        },
+        "primary_keys": [
+            "ccBrand"
+        ],
+        "foreign_keys": []
+    },
+    "DastehBandiNezaraty": {
+        "columns": {
+            "ccNoeDastehBandiNezaraty": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccDastehBandiNezaraty": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "NameDastehBandiNezaraty": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            },
+            "Code": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            }
+        },
+        "primary_keys": [
+            "ccDastehBandiNezaraty"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccNoeDastehBandiNezaraty",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "NoeDastehBandiNezaraty",
+                "referenced_column": "ccNoeDastehBandiNezaraty",
+                "constraint_name": "FK_DastehBandiNezaraty_NoeDastehBandiNezaraty"
+            }
+        ]
+    },
+    "ElatMarjoeeKala": {
+        "columns": {
+            "ccElatMarjoeeKala": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Sharh": {
+                "data_type": "nvarchar",
+                "max_length": 250
+            },
+            "CodeNoeElat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "MasoleiatElat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "CodeNoeAnbar": {
+                "data_type": "tinyint",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccElatMarjoeeKala"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccElatMarjoeeKala",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "ElatMarjoeeKala",
+                "referenced_column": "ccElatMarjoeeKala",
+                "constraint_name": "FK_ElatMarjoeeKala_ElatMarjoeeKala"
+            }
+        ]
+    },
+    "FaktorKharid": {
+        "columns": {
+            "ccMarkazPakhsh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccTaminKonandeh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccFaktorKharid": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ShomarehFaktorKharid": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "TarikhFaktorKharid": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "MablaghKol": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Takhfif": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccFaktorKharid"
+        ],
+        "foreign_keys": []
+    },
+    "FaktorKharidSatr": {
+        "columns": {
+            "ccFaktorKharid": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccFaktorKharidSatr": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Tedad": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Gheymat": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccFaktorKharidSatr"
+        ],
+        "foreign_keys": []
+    },
+    "FaktorKharidSatrAnbar": {
+        "columns": {
+            "ccFaktorKharidSatr": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccFaktorKharidSatrAnbar": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKardexSatr": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccFaktorKharidSatrAnbar"
+        ],
+        "foreign_keys": []
+    },
+    "GheymatMianginKala": {
+        "columns": {
+            "ccMarkazPakhsh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "CodeNoeAnbar": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "GheymatMiangin": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "ccKardexEffect": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "TarikhEffect": {
+                "data_type": "datetime",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccMarkazPakhsh",
+            "CodeNoeAnbar",
+            "ccKalaCode"
+        ],
+        "foreign_keys": []
+    },
+    "GheymatMianginKalaLog": {
+        "columns": {
+            "ccGheymatMianginKalaLog": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "CodeNoeAnbar": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "GheymatMiangin": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Tarikh": {
+                "data_type": "datetime",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccGheymatMianginKalaLog"
+        ],
+        "foreign_keys": []
+    },
+    "GheymatMianginKalaTaminKonandeh": {
+        "columns": {
+            "CodeNoeAnbar": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccTaminKonandeh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "GheymatMiangin": {
+                "data_type": "float",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "CodeNoeAnbar",
+            "ccKalaCode",
+            "ccTaminKonandeh"
+        ],
+        "foreign_keys": []
+    },
+    "Kala": {
+        "columns": {
+            "ccKala": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKalaLink": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "CodeKalaT": {
+                "data_type": "nvarchar",
+                "max_length": 12
+            },
+            "NameKala": {
+                "data_type": "nvarchar",
+                "max_length": 150
+            },
+            "NameKalaFaktor": {
+                "data_type": "nvarchar",
+                "max_length": 150
+            },
+            "NamePocketPC": {
+                "data_type": "nvarchar",
+                "max_length": 150
+            },
+            "NameKalaPrint": {
+                "data_type": "nvarchar",
+                "max_length": 150
+            },
+            "NameLatin": {
+                "data_type": "nvarchar",
+                "max_length": 150
+            },
+            "ccBrand": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "CodeNoeGheymat": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Tol": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Arz": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Ertefa": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "ccVahedSize": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccVahedVazn": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Tedad1": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Tedad2": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Tedad3": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Tedad4": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Olaviat": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccVahedShomaresh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "FromDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "EndDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "Elat": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            },
+            "VaznKhales": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "VaznNaKhales": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "VaznKarton": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "CodeNoeKalaMalzomat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "CodeKalaOld": {
+                "data_type": "nvarchar",
+                "max_length": 15
+            },
+            "CodeNoeSys": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "CodeSort": {
+                "data_type": "nvarchar",
+                "max_length": 300
+            },
+            "MashmolMaliat": {
+                "data_type": "bit",
+                "max_length": null
+            },
+            "MashmolAvarez": {
+                "data_type": "bit",
+                "max_length": null
+            },
+            "MashmolSobsid": {
+                "data_type": "bit",
+                "max_length": null
+            },
+            "CodeJenerik": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "CodeGS1": {
+                "data_type": "nvarchar",
+                "max_length": 20
+            },
+            "IranCode": {
+                "data_type": "nvarchar",
+                "max_length": 20
+            },
+            "CodeMelli": {
+                "data_type": "nvarchar",
+                "max_length": 20
+            },
+            "BarCode": {
+                "data_type": "nvarchar",
+                "max_length": 20
+            },
+            "BarCodeAmaliati": {
+                "data_type": "nvarchar",
+                "max_length": 20
+            },
+            "CodeMoeen": {
+                "data_type": "nvarchar",
+                "max_length": 20
+            },
+            "ccTaminkonandeh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccTolidkonandeh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "NahvehTamin": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "TaeedFani": {
+                "data_type": "bit",
+                "max_length": null
+            },
+            "CodeRasmiDaroo": {
+                "data_type": "nvarchar",
+                "max_length": 20
+            },
+            "GhatiAmani": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "flagTarikhMilady": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "codegtin": {
+                "data_type": "nvarchar",
+                "max_length": -1
+            },
+            "TarikhEntry": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "ModifiedDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "ShenasehKala": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            }
+        },
+        "primary_keys": [
+            "ccKala"
+        ],
+        "foreign_keys": []
+    },
+    "KalaAdamElat": {
+        "columns": {
+            "SharhElat": {
+                "data_type": "nvarchar",
+                "max_length": 100
+            },
+            "CodeNoeAdam": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccKalaAdamElat": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccKalaAdamElat"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccKalaAdamElat",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "KalaAdamElat",
+                "referenced_column": "ccKalaAdamElat",
+                "constraint_name": "FK_KalaAdamElat_KalaAdamElat"
+            }
+        ]
+    },
+    "KalaAdamMarjoee": {
+        "columns": {
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccMarkazPakhsh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKalaAdamMarjoee": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "FromDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "EndDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccElat": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Elat": {
+                "data_type": "nvarchar",
+                "max_length": 255
+            },
+            "Sharh": {
+                "data_type": "nvarchar",
+                "max_length": -1
+            }
+        },
+        "primary_keys": [
+            "ccKalaAdamMarjoee"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccMarkazPakhsh",
+                "referenced_schema": "Global",
+                "referenced_table": "MarkazPakhsh",
+                "referenced_column": "ccMarkazPakhsh",
+                "constraint_name": "FK_KalaAdamMarjoee_MarkazPakhsh"
+            },
+            {
+                "column_name": "ccKalaCode",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "Kala",
+                "referenced_column": "ccKala",
+                "constraint_name": "FK_KalaAdamMarjoee_Kala"
+            },
+            {
+                "column_name": "ccElat",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "KalaAdamElat",
+                "referenced_column": "ccKalaAdamElat",
+                "constraint_name": "FK_KalaAdamMarjoee_KalaAdamElat"
+            }
+        ]
+    },
+    "KalaAdamSefaresh": {
+        "columns": {
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccMarkazPakhsh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKalaAdamSefaresh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "FromDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "EndDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccElat": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Elat": {
+                "data_type": "nvarchar",
+                "max_length": 255
+            },
+            "Sharh": {
+                "data_type": "nvarchar",
+                "max_length": -1
+            }
+        },
+        "primary_keys": [
+            "ccKalaAdamSefaresh"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccMarkazPakhsh",
+                "referenced_schema": "Global",
+                "referenced_table": "MarkazPakhsh",
+                "referenced_column": "ccMarkazPakhsh",
+                "constraint_name": "FK_KalaAdamSefaresh_MarkazPakhsh"
+            },
+            {
+                "column_name": "ccKalaCode",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "Kala",
+                "referenced_column": "ccKala",
+                "constraint_name": "FK_KalaAdamSefaresh_Kala"
+            },
+            {
+                "column_name": "ccElat",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "KalaAdamElat",
+                "referenced_column": "ccKalaAdamElat",
+                "constraint_name": "FK_KalaAdamSefaresh_KalaAdamElat"
+            }
+        ]
+    },
+    "KalaAnbar": {
+        "columns": {
+            "ccAnbar": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "MinMojodi": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "MaxMojodi": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "NoghtehSefaresh": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Mojody": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccAnbar",
+            "ccKalaCode"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccAnbar",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "Anbar",
+                "referenced_column": "ccAnbar",
+                "constraint_name": "FK_KalaAnbar_Anbar"
+            }
+        ]
+    },
+    "KalaAnbarBK": {
+        "columns": {
+            "ccAnbar": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "MinMojodi": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "MaxMojodi": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "NoghtehSefaresh": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Mojody": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [],
+        "foreign_keys": []
+    },
+    "KalaAnbarGhesmat": {
+        "columns": {
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccAnbarGhesmat": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccKalaCode",
+            "ccAnbarGhesmat"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccAnbarGhesmat",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "AnbarGhesmat",
+                "referenced_column": "ccAnbarGhesmat",
+                "constraint_name": "FK_KalaAnbarGhesmat_AnbarGhesmat"
+            }
+        ]
+    },
+    "KalaBachAdamForosh": {
+        "columns": {
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ShomarehBach": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            },
+            "ccKalaBachAdamForosh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "FromDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "EndDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccElat": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccKalaBachAdamForosh"
+        ],
+        "foreign_keys": []
+    },
+    "KalaBachAdamMarjoee": {
+        "columns": {
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ShomarehBach": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            },
+            "ccKalaBachAdamMarjoee": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "FromDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "EndDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccElat": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccKalaBachAdamMarjoee"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccElat",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "KalaAdamElat",
+                "referenced_column": "ccKalaAdamElat",
+                "constraint_name": "FK_KalaBachAdamMarjoee_KalaAdamElat"
+            }
+        ]
+    },
+    "KalaDastehBandiNezaraty": {
+        "columns": {
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccDastehBandiNezaraty": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKalaDastehBandiNezaraty": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccKalaDastehBandiNezaraty"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccDastehBandiNezaraty",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "DastehBandiNezaraty",
+                "referenced_column": "ccDastehBandiNezaraty",
+                "constraint_name": "FK_KalaDastehBandiNezaraty_DastehBandiNezaraty"
+            },
+            {
+                "column_name": "ccKalaCode",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "Kala",
+                "referenced_column": "ccKala",
+                "constraint_name": "FK_KalaDastehBandiNezaraty_Kala"
+            }
+        ]
+    },
+    "KalaGheymatKharid": {
+        "columns": {
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccTaminkonandeh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKalaGheymatKharid": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "MablaghKharid": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "FromDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "EndDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "Elat": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            }
+        },
+        "primary_keys": [
+            "ccKalaGheymatKharid"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccKalaCode",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "Kala",
+                "referenced_column": "ccKala",
+                "constraint_name": "FK_KalaGheymatKharid_Kala"
+            },
+            {
+                "column_name": "ccTaminkonandeh",
+                "referenced_schema": "Purchase",
+                "referenced_table": "TaminKonandeh",
+                "referenced_column": "ccTaminKonandeh",
+                "constraint_name": "FK_KalaGheymatKharid_TaminKonandeh"
+            }
+        ]
+    },
+    "KalaGheymatMasrafKonandeh": {
+        "columns": {
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKalaGheymatMasrafKonandeh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "MablaghMasrafKonandeh": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "FromDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "EndDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "Elat": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            }
+        },
+        "primary_keys": [
+            "ccKalaGheymatMasrafKonandeh"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccKalaCode",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "Kala",
+                "referenced_column": "ccKala",
+                "constraint_name": "FK_KalaGheymatMasrafKonandeh_Kala"
+            }
+        ]
+    },
+    "KalaGheymatPhoto": {
+        "columns": {
+            "ccKalaGheymat": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "CodeNoeGheymat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccPhoto": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccNoePhoto": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "TarikhEntry": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "ccUser": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccKalaGheymat",
+            "CodeNoeGheymat",
+            "ccPhoto"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccNoePhoto",
+                "referenced_schema": "Global",
+                "referenced_table": "NoePhoto",
+                "referenced_column": "ccNoePhoto",
+                "constraint_name": "FK_KalaGheymatPhoto_NoePhoto"
+            },
+            {
+                "column_name": "ccPhoto",
+                "referenced_schema": "Global",
+                "referenced_table": "Photo",
+                "referenced_column": "ccPhoto",
+                "constraint_name": "FK_KalaGheymatPhoto_Photo"
+            }
+        ]
+    },
+    "KalaGoroh": {
+        "columns": {
+            "ccKalaGoroh": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccGoroh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "TarikhEntry": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "ModifiedDate": {
+                "data_type": "datetime",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccKalaCode",
+            "ccGoroh"
+        ],
+        "foreign_keys": []
+    },
+    "KalaGoroh13980320": {
+        "columns": {
+            "ccKalaGoroh": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccGoroh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "TarikhEntry": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "ModifiedDate": {
+                "data_type": "datetime",
+                "max_length": null
+            }
+        },
+        "primary_keys": [],
+        "foreign_keys": []
+    },
+    "KalaHistory": {
+        "columns": {
+            "ccKalaHistory": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccKala": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKalaLink": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "CodeKalaT": {
+                "data_type": "nvarchar",
+                "max_length": 12
+            },
+            "NameKala": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            },
+            "NameKalaFaktor": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            },
+            "NamePocketPC": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            },
+            "NameKalaPrint": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            },
+            "NameLatin": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            },
+            "ccBrand": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "CodeNoeGheymat": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Tol": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Arz": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Ertefa": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "ccVahedSize": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccVahedVazn": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Tedad1": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Tedad2": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Tedad3": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Tedad4": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Olaviat": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccVahedShomaresh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "FromDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "EndDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "Elat": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            },
+            "VaznKhales": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "VaznNaKhales": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "VaznKarton": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "CodeNoeKalaMalzomat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "CodeKalaOld": {
+                "data_type": "nvarchar",
+                "max_length": 15
+            },
+            "CodeNoeSys": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "CodeSort": {
+                "data_type": "nvarchar",
+                "max_length": 300
+            },
+            "MashmolMaliat": {
+                "data_type": "bit",
+                "max_length": null
+            },
+            "MashmolAvarez": {
+                "data_type": "bit",
+                "max_length": null
+            },
+            "MashmolSobsid": {
+                "data_type": "bit",
+                "max_length": null
+            },
+            "CodeJenerik": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Tarikh": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "ccUser": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "CodeNoeCRUD": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccTaminKonandeh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccTolidKonandeh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "NahvehTamin": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "TaeedFani": {
+                "data_type": "bit",
+                "max_length": null
+            },
+            "GhatiAmani": {
+                "data_type": "bit",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccKalaHistory"
+        ],
+        "foreign_keys": []
+    },
+    "KalaMoshabeh": {
+        "columns": {
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKalaCodeMoshabeh": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccKalaCode",
+            "ccKalaCodeMoshabeh"
+        ],
+        "foreign_keys": []
+    },
+    "KalaPhoto": {
+        "columns": {
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccPhoto": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccNoePhoto": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccKalaCode",
+            "ccPhoto"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccNoePhoto",
+                "referenced_schema": "Global",
+                "referenced_table": "NoePhoto",
+                "referenced_column": "ccNoePhoto",
+                "constraint_name": "FK_KalaPhoto_NoePhoto"
+            },
+            {
+                "column_name": "ccKalaCode",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "Kala",
+                "referenced_column": "ccKala",
+                "constraint_name": "FK_KalaPhoto_Kala"
+            },
+            {
+                "column_name": "ccPhoto",
+                "referenced_schema": "Global",
+                "referenced_table": "Photo",
+                "referenced_column": "ccPhoto",
+                "constraint_name": "FK_KalaPhoto_Photo"
+            }
+        ]
+    },
+    "KalaSahmiehBandy": {
+        "columns": {
+            "ShomarehBakhshnameh": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            },
+            "TarikhBakhshNameh": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKalaSahmieh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "FromDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "EndDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "Elat": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            }
+        },
+        "primary_keys": [
+            "ccKalaSahmieh"
+        ],
+        "foreign_keys": []
+    },
+    "KalaShomarehBach": {
+        "columns": {
+            "ccShomarehBach": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ShomarehBach": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            },
+            "ccTaminKonandeh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "TarikhTolid": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "TarikhEngheza": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "ccTolidKonandeh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "CodeNoeTarikh": {
+                "data_type": "bit",
+                "max_length": null
+            },
+            "IranCode": {
+                "data_type": "nvarchar",
+                "max_length": 20
+            },
+            "Codegtin": {
+                "data_type": "nvarchar",
+                "max_length": 25
+            },
+            "TarikhEntery": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "TarikhEnghezaTemp": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "UID": {
+                "data_type": "nvarchar",
+                "max_length": 25
+            }
+        },
+        "primary_keys": [
+            "ccShomarehBach"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccTaminKonandeh",
+                "referenced_schema": "Purchase",
+                "referenced_table": "TaminKonandeh",
+                "referenced_column": "ccTaminKonandeh",
+                "constraint_name": "FK_KalaShomarehBach_TaminKonandeh"
+            }
+        ]
+    },
+    "KalaTaminKonandeh": {
+        "columns": {
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccTaminKonandeh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "CodeKalaTaminKonandeh": {
+                "data_type": "nvarchar",
+                "max_length": 15
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccKalaCode"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccTaminKonandeh",
+                "referenced_schema": "Purchase",
+                "referenced_table": "TaminKonandeh",
+                "referenced_column": "ccTaminKonandeh",
+                "constraint_name": "FK_KalaTaminKonandeh_TaminKonandeh"
+            }
+        ]
+    },
+    "KalaTedadBlokeh": {
+        "columns": {
+            "ccKalaTedadBlokeh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccMarkazPakhsh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKala": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "FromDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "EndDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "Tedad": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "ccRefrence": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "CodeNoeAnbar": {
+                "data_type": "tinyint",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccKalaTedadBlokeh"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccMarkazPakhsh",
+                "referenced_schema": "Global",
+                "referenced_table": "MarkazPakhsh",
+                "referenced_column": "ccMarkazPakhsh",
+                "constraint_name": "FK_KalaTedadBlokeh_MarkazPakhsh"
+            }
+        ]
+    },
+    "KalaTolidKonandeh": {
+        "columns": {
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccTolidKonandeh": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccKalaCode"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccTolidKonandeh",
+                "referenced_schema": "Purchase",
+                "referenced_table": "TolidKonandeh",
+                "referenced_column": "ccTolidKonandeh",
+                "constraint_name": "FK_KalaTolidKonandeh_TolidKonandeh"
+            }
+        ]
+    },
+    "KalaZaribBazariaby": {
+        "columns": {
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKalaZaribBazariaby": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ZaribBazariaby": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "FromDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "EndDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "Elat": {
+                "data_type": "nvarchar",
+                "max_length": 255
+            }
+        },
+        "primary_keys": [
+            "ccKalaZaribBazariaby"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccKalaCode",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "Kala",
+                "referenced_column": "ccKala",
+                "constraint_name": "FK_KalaZaribBazariaby_Kala"
+            }
+        ]
+    },
+    "Kardex": {
+        "columns": {
+            "ccMarkazPakhsh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccAnbar": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "CodeNoeAnbar": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccKardex": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "Sal": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "CodeNoeForm": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "CodeNoeAmalyat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ShomarehForm": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "TarikhForm": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "ccMarkazPakhshBe": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccRefrence": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "Elat": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            },
+            "ShomarehFaktor": {
+                "data_type": "nvarchar",
+                "max_length": 12
+            },
+            "TarikhFaktor": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "ccUser": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccMoshtary": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "SumGheymatMarjoee": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "SumTedadMarjoee": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "MarjoeeKamel": {
+                "data_type": "bit",
+                "max_length": null
+            },
+            "SumMaliat": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "SumAvarez": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "TakhfifFaktor": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "CodeNoeVorod": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccForoshandeh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "MablaghTakhfif": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "ccMashin": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccAfradRanandeh": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccKardex",
+            "Sal"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccMarkazPakhsh",
+                "referenced_schema": "Global",
+                "referenced_table": "MarkazPakhsh",
+                "referenced_column": "ccMarkazPakhsh",
+                "constraint_name": "FK_Kardex_MarkazPakhsh"
+            },
+            {
+                "column_name": "ccAnbar",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "Anbar",
+                "referenced_column": "ccAnbar",
+                "constraint_name": "FK_Kardex_Anbar"
+            }
+        ]
+    },
+    "KardexAmarNameh": {
+        "columns": {
+            "ccKardexAmarNameh": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccMarkazPakhsh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "CodeNoeAnbar": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccAnbar": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "TarikhForm": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "CodeNoeForm": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccTaminKonandeh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKalacode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ShomarehBach": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            },
+            "TarikhTolid": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "TarikhEngheza": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "Tedad": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccRefrence": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "TarikhEntry": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "Codevazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "UUID": {
+                "data_type": "nchar",
+                "max_length": 50
+            },
+            "Olaviat": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Comment": {
+                "data_type": "nvarchar",
+                "max_length": 100
+            },
+            "GLN": {
+                "data_type": "nvarchar",
+                "max_length": 20
+            },
+            "IRC": {
+                "data_type": "nvarchar",
+                "max_length": 20
+            },
+            "Gtin": {
+                "data_type": "nvarchar",
+                "max_length": 20
+            },
+            "TedadDarBasteh": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccKardexAmarNameh"
+        ],
+        "foreign_keys": []
+    },
+    "KardexAmarNamehBK13990208": {
+        "columns": {
+            "ccKardexAmarNameh": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccMarkazPakhsh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "CodeNoeAnbar": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccAnbar": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "TarikhForm": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "CodeNoeForm": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccTaminKonandeh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKalacode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ShomarehBach": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            },
+            "TarikhTolid": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "TarikhEngheza": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "Tedad": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccRefrence": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "TarikhEntry": {
+                "data_type": "datetime",
+                "max_length": null
+            }
+        },
+        "primary_keys": [],
+        "foreign_keys": []
+    },
+    "KardexFlat": {
+        "columns": {
+            "ccKardexFlat": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "Sal": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKardex": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccKardexSatr": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccKardexSatrGhesmat": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccAnbarGhesmat": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccMarkazPakhsh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccAnbar": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "CodeNoeAnbar": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "CodeNoeForm": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "CodeNoeAmalyat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ShomarehForm": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "TarikhForm": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "ccRefrence": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccTaminKonandeh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKala": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "CodeNoeKala": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ShomarehBach": {
+                "data_type": "nvarchar",
+                "max_length": 20
+            },
+            "TarikhTolid": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "TarikhEngheza": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "Tedad3": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Tedad4": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "GheymatMiangin": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "GheymatMoaserMiangin": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "GheymatKharid": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "GheymatForosh": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "GheymatMianginTaminKonandeh": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "GheymatForoshKhalesKala": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "TarikhEntry": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "ModifiedDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "Maliat": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Avarez": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "NoeKharid": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccDarkhastFaktorSatr": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "TakhfifFaktor": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "GheymatMianginTemp": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "ccMarkazPakhshBe": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "GheymatMasrafKonandeh": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "GheymatTempLast": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "GhatiAmani": {
+                "data_type": "tinyint",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccKardexFlat",
+            "Sal"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccKardexSatrGhesmat",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "KardexSatrGhesmat",
+                "referenced_column": "ccKardexSatrGhesmat",
+                "constraint_name": "FK_KardexFlat_KardexSatrGhesmat"
+            },
+            {
+                "column_name": "Sal",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "KardexSatrGhesmat",
+                "referenced_column": "Sal",
+                "constraint_name": "FK_KardexFlat_KardexSatrGhesmat"
+            }
+        ]
+    },
+    "KardexSatr": {
+        "columns": {
+            "ccKardex": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccKardexSatr": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "Sal": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccTaminKonandeh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKala": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ShomarehBach": {
+                "data_type": "nvarchar",
+                "max_length": 20
+            },
+            "TarikhTolid": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "TarikhEngheza": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "Tedad1": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Tedad2": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Tedad3": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Mojody": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Gheymat": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "ccElat": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Gheymat2": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "GheymatKolM": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "ccDarkhastFaktor": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "Gheymat3": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "CodeNoeKala": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccAfrad": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Gheymat4": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Gheymat5": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "TarikhForm": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "Tedad4": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "TakhfifFaktor": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Maliat": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Avarez": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Gheymat7": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Gheymat6": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "NoeKharid": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "Sharh": {
+                "data_type": "nvarchar",
+                "max_length": 200
+            },
+            "ccDarkhastFaktorSatr": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "GheymatTemp": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "GheymatTempLast": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "GhatiAmani": {
+                "data_type": "tinyint",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccKardexSatr",
+            "Sal"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccKardex",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "Kardex",
+                "referenced_column": "ccKardex",
+                "constraint_name": "FK_KardexSatr_Kardex"
+            },
+            {
+                "column_name": "ccKala",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "Kala",
+                "referenced_column": "ccKala",
+                "constraint_name": "FK_KardexSatr_Kala"
+            },
+            {
+                "column_name": "Sal",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "Kardex",
+                "referenced_column": "Sal",
+                "constraint_name": "FK_KardexSatr_Kardex"
+            }
+        ]
+    },
+    "KardexSatrGhesmat": {
+        "columns": {
+            "ccKardexSatr": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccAnbarGhesmat": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Tedad": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Mojody": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "TarikhForm": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "Tedad4": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "ccKardexSatrGhesmat": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "Sal": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccKardexSatrGhesmat",
+            "Sal"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccKardexSatr",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "KardexSatr",
+                "referenced_column": "ccKardexSatr",
+                "constraint_name": "FK_KardexSatrGhesmat_KardexSatr"
+            },
+            {
+                "column_name": "ccAnbarGhesmat",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "AnbarGhesmat",
+                "referenced_column": "ccAnbarGhesmat",
+                "constraint_name": "FK_KardexSatrGhesmat_AnbarGhesmat"
+            },
+            {
+                "column_name": "Sal",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "KardexSatr",
+                "referenced_column": "Sal",
+                "constraint_name": "FK_KardexSatrGhesmat_KardexSatr"
+            }
+        ]
+    },
+    "KardexTafkikHavaleh": {
+        "columns": {
+            "ccKardexTafkikHavaleh": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccMarkazPakhsh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Shomareh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Tarikh": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "Sharh": {
+                "data_type": "nvarchar",
+                "max_length": 200
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "CodeNoeHaml": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "CodeNoeHavaleh": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccKardexTafkikHavaleh"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccKardexTafkikHavaleh",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "KardexTafkikHavaleh",
+                "referenced_column": "ccKardexTafkikHavaleh",
+                "constraint_name": "FK_KardexTafkikHavaleh_KardexTafkikHavaleh"
+            }
+        ]
+    },
+    "KardexTafkikHavalehSatr": {
+        "columns": {
+            "ccKardexTafkikHavaleh": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccKardex": {
+                "data_type": "bigint",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccKardexTafkikHavaleh",
+            "ccKardex"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccKardexTafkikHavaleh",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "KardexTafkikHavaleh",
+                "referenced_column": "ccKardexTafkikHavaleh",
+                "constraint_name": "FK_KardexTafkikHavalehSatr_KardexTafkikHavaleh"
+            }
+        ]
+    },
+    "KardexTarikh": {
+        "columns": {
+            "ccKardexTarikh": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccKardex": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "TarikhErsalMoadian": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "CodeNoeForm": {
+                "data_type": "tinyint",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccKardexTarikh"
+        ],
+        "foreign_keys": []
+    },
+    "KardexVazeiat": {
+        "columns": {
+            "ccKardex": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccKardexVazeiat": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ZamanVazeiat": {
+                "data_type": "datetime",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccKardexVazeiat"
+        ],
+        "foreign_keys": []
+    },
+    "MarjoeeJavayez": {
+        "columns": {
+            "ccMarjoeeJavayez": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccDarkhastFaktor": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccJayezeh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Tedad": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccMarjoeeJavayez"
+        ],
+        "foreign_keys": []
+    },
+    "MohasebehMianginGhatee": {
+        "columns": {
+            "ccMohasebehMianginGhatee": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "FromDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "EndDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "CodeNoeMohasebeh": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccUser": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "TarikhEntry": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "ModifiedDate": {
+                "data_type": "datetime",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccMohasebehMianginGhatee"
+        ],
+        "foreign_keys": []
+    },
+    "MohasebehMianginGhateeBK": {
+        "columns": {
+            "ccMohasebehMianginGhatee": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "FromDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "EndDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "CodeNoeMohasebeh": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccUser": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "TarikhEntry": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "ModifiedDate": {
+                "data_type": "datetime",
+                "max_length": null
+            }
+        },
+        "primary_keys": [],
+        "foreign_keys": []
+    },
+    "MohasebehMianginGhateebk2": {
+        "columns": {
+            "ccMohasebehMianginGhatee": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "FromDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "EndDate": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "CodeNoeMohasebeh": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccUser": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "TarikhEntry": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "ModifiedDate": {
+                "data_type": "datetime",
+                "max_length": null
+            }
+        },
+        "primary_keys": [],
+        "foreign_keys": []
+    },
+    "Mojody": {
+        "columns": {
+            "ccKala": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccKalaCode": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ShomarehBach": {
+                "data_type": "nchar",
+                "max_length": 20
+            },
+            "TarikhTolid": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "TarikhEngheza": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "ccAnbar": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccAnbarghesmat": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Mojody": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "ccKardexEffect": {
+                "data_type": "bigint",
+                "max_length": null
+            }
+        },
+        "primary_keys": [],
+        "foreign_keys": []
+    },
+    "MojodyRooz": {
+        "columns": {
+            "ccMojodyRooz": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Tarikh": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "ccKala": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccMarkazPakhsh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Mojody": {
+                "data_type": "bigint",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccMojodyRooz"
+        ],
+        "foreign_keys": []
+    },
+    "NoeDastehBandiNezaraty": {
+        "columns": {
+            "ccNoeDastehBandiNezaraty": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Sharh": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            }
+        },
+        "primary_keys": [
+            "ccNoeDastehBandiNezaraty"
+        ],
+        "foreign_keys": []
+    },
+    "NoeForm": {
+        "columns": {
+            "CodeNoeForm": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "NameNoeform": {
+                "data_type": "char",
+                "max_length": 50
+            }
+        },
+        "primary_keys": [
+            "CodeNoeForm"
+        ],
+        "foreign_keys": []
+    },
+    "Sefaresh": {
+        "columns": {
+            "ccMarkazPakhsh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccSefaresh": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccTaminKonandeh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "CodeNoeSefaresh": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ShomarehSefaresh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "TarikhSefaresh": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "TarikhNiaz": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "ccDarkhastFaktor": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "Elat": {
+                "data_type": "nchar",
+                "max_length": 100
+            },
+            "TarikhErsal": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "Tozihat": {
+                "data_type": "nchar",
+                "max_length": 100
+            }
+        },
+        "primary_keys": [
+            "ccSefaresh"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccMarkazPakhsh",
+                "referenced_schema": "Global",
+                "referenced_table": "MarkazPakhsh",
+                "referenced_column": "ccMarkazPakhsh",
+                "constraint_name": "FK_Sefaresh_MarkazPakhsh"
+            }
+        ]
+    },
+    "SefareshSatr": {
+        "columns": {
+            "ccSefaresh": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccSefareshSatr": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccKala": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Tedad1": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "Tedad2": {
+                "data_type": "float",
+                "max_length": null
+            },
+            "AzTarikh": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "TaTarikh": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "SefareshPishnahady": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "CodeNoeKala": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "Tozihat": {
+                "data_type": "nchar",
+                "max_length": 100
+            }
+        },
+        "primary_keys": [
+            "ccSefareshSatr"
+        ],
+        "foreign_keys": []
+    },
+    "SystemConfig": {
+        "columns": {
+            "EjbaryKalaGoroh": {
+                "data_type": "bit",
+                "max_length": null
+            },
+            "EjbaryKalaTaminkonandeh": {
+                "data_type": "bit",
+                "max_length": null
+            },
+            "EjbaryKalaGheimat": {
+                "data_type": "bit",
+                "max_length": null
+            },
+            "HaveModatVosolCheckKartabl": {
+                "data_type": "bit",
+                "max_length": null
+            },
+            "TedadroozGozashtehSefaresh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ZaribForoshForTaeedKala": {
+                "data_type": "bit",
+                "max_length": null
+            }
+        },
+        "primary_keys": [],
+        "foreign_keys": []
+    },
+    "TafkikAnbar": {
+        "columns": {
+            "ccMarkazPakhsh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccTafkikAnbar": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ShomarehTafkikAnbar": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "TarikhTafkikAnbar": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "TarikhPishBiniErsal": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "TarikhErsal": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "SaatErsal": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "ccNoeMashin": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccMashin": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccAfradRanandeh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccAfradMamorPakhsh": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "TarikhDariaft": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "SaatDariaft": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "MasirTedad": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccUser": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "TarikhBargasht": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "SaatBargasht": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "Sharh": {
+                "data_type": "nvarchar",
+                "max_length": 200
+            },
+            "ViewTaghvimPakhsh": {
+                "data_type": "tinyint",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccTafkikAnbar"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccMarkazPakhsh",
+                "referenced_schema": "Global",
+                "referenced_table": "MarkazPakhsh",
+                "referenced_column": "ccMarkazPakhsh",
+                "constraint_name": "FK_TafkikAnbar_MarkazPakhsh"
+            },
+            {
+                "column_name": "ccMashin",
+                "referenced_schema": "Sales",
+                "referenced_table": "Mashin",
+                "referenced_column": "ccMashin",
+                "constraint_name": "FK_TafkikAnbar_Mashin"
+            },
+            {
+                "column_name": "ccNoeMashin",
+                "referenced_schema": "Sales",
+                "referenced_table": "NoeMashin",
+                "referenced_column": "ccNoeMashin",
+                "constraint_name": "FK_TafkikAnbar_NoeMashin"
+            },
+            {
+                "column_name": "ccAfradMamorPakhsh",
+                "referenced_schema": "Global",
+                "referenced_table": "Afrad",
+                "referenced_column": "ccAfrad",
+                "constraint_name": "FK_TafkikAnbar_Personel"
+            },
+            {
+                "column_name": "ccAfradRanandeh",
+                "referenced_schema": "Global",
+                "referenced_table": "Afrad",
+                "referenced_column": "ccAfrad",
+                "constraint_name": "FK_TafkikAnbar_Personel1"
+            }
+        ]
+    },
+    "TafkikAnbarSatr": {
+        "columns": {
+            "ccTafkikAnbar": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccTafkikAnbarSatr": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccKardex": {
+                "data_type": "bigint",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccTafkikAnbarSatr"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccTafkikAnbar",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "TafkikAnbar",
+                "referenced_column": "ccTafkikAnbar",
+                "constraint_name": "FK_TafkikAnbarSatr_TafkikAnbar"
+            }
+        ]
+    },
+    "Vahed": {
+        "columns": {
+            "ccVahed": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "NameVahed": {
+                "data_type": "nvarchar",
+                "max_length": 50
+            },
+            "CodeNoeVahed": {
+                "data_type": "tinyint",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccVahed"
+        ],
+        "foreign_keys": []
+    },
+    "VahedTabdil": {
+        "columns": {
+            "ccVahedAz": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccVahedBe": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "Zarib": {
+                "data_type": "decimal",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccVahedAz",
+            "ccVahedBe"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccVahedAz",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "Vahed",
+                "referenced_column": "ccVahed",
+                "constraint_name": "FK_VahedTabdil_Vahed"
+            },
+            {
+                "column_name": "ccVahedBe",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "Vahed",
+                "referenced_column": "ccVahed",
+                "constraint_name": "FK_VahedTabdil_Vahed1"
+            }
+        ]
+    },
+    "VazeiatMarjoeeFaktor": {
+        "columns": {
+            "ccVazeiatMarjoeeFaktor": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccDarkhastFaktor": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "Tarikh": {
+                "data_type": "datetime",
+                "max_length": null
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "ccAnbar": {
+                "data_type": "int",
+                "max_length": null
+            },
+            "ccElat": {
+                "data_type": "int",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccVazeiatMarjoeeFaktor"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccAnbar",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "Anbar",
+                "referenced_column": "ccAnbar",
+                "constraint_name": "FK_VazeiatMarjoeeFaktor_Anbar"
+            }
+        ]
+    },
+    "VazeiatSefaresh": {
+        "columns": {
+            "ccVazeiatSefaresh": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "ccSefaresh": {
+                "data_type": "bigint",
+                "max_length": null
+            },
+            "CodeVazeiat": {
+                "data_type": "tinyint",
+                "max_length": null
+            },
+            "Tarikh": {
+                "data_type": "datetime",
+                "max_length": null
+            }
+        },
+        "primary_keys": [
+            "ccVazeiatSefaresh"
+        ],
+        "foreign_keys": [
+            {
+                "column_name": "ccSefaresh",
+                "referenced_schema": "Warehouse",
+                "referenced_table": "Sefaresh",
+                "referenced_column": "ccSefaresh",
+                "constraint_name": "FK_VazeiatSefaresh_Sefaresh"
+            }
+        ]
+    }
+}

@@ -1,0 +1,1111 @@
+2026-05-23 11:08:14,130 - base_etl - ERROR - ❌ تنظیماتی در مسیر config/settings.yaml پیدا نشد!
+2026-05-23 11:08:14,132 - base_etl - ERROR - ❌ تنظیماتی در مسیر config/settings.yaml پیدا نشد!
+2026-05-23 11:08:14,135 - base_etl - ERROR - ❌ تنظیماتی در مسیر config/settings.yaml پیدا نشد!
+2026-05-23 11:09:38,939 - base_etl - ERROR - ❌ تنظیماتی در مسیر config/settings.yaml پیدا نشد!
+2026-05-23 11:09:38,941 - base_etl - ERROR - ❌ تنظیماتی در مسیر config/settings.yaml پیدا نشد!
+2026-05-23 11:09:38,945 - base_etl - ERROR - ❌ تنظیماتی در مسیر config/settings.yaml پیدا نشد!
+2026-05-23 11:11:50,099 - base_etl - ERROR - ❌ تنظیماتی در مسیر config/settings.yaml پیدا نشد!
+2026-05-23 11:11:50,101 - base_etl - ERROR - ❌ تنظیماتی در مسیر config/settings.yaml پیدا نشد!
+2026-05-23 11:11:50,103 - base_etl - ERROR - ❌ تنظیماتی در مسیر config/settings.yaml پیدا نشد!
+2026-05-23 11:17:07,180 - base_etl - ERROR - ❌ تنظیماتی در مسیر config/settings.yaml پیدا نشد!
+2026-05-23 11:17:07,182 - base_etl - ERROR - ❌ تنظیماتی در مسیر config/settings.yaml پیدا نشد!
+2026-05-23 11:17:07,184 - base_etl - ERROR - ❌ تنظیماتی در مسیر config/settings.yaml پیدا نشد!
+2026-05-23 11:18:08,223 - base_etl - ERROR - ❌ تنظیماتی در مسیر config/databases.yaml پیدا نشد!
+2026-05-23 11:18:08,226 - base_etl - ERROR - ❌ تنظیماتی در مسیر config/databases.yaml پیدا نشد!
+2026-05-23 11:18:08,228 - base_etl - ERROR - ❌ تنظیماتی در مسیر config/databases.yaml پیدا نشد!
+2026-05-23 11:41:56,443 - load_sales_dw - INFO - ============================================================
+2026-05-23 11:41:56,444 - load_sales_dw - INFO - 🔄 شروع بارگذاری هدر فاکتورهای فروش
+2026-05-23 11:41:56,445 - load_sales_dw - INFO - ============================================================
+2026-05-23 11:41:56,563 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_header هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 11:41:56,564 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_header. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 11:41:56,771 - extractor - ERROR - 🚨 خطا در فرآیند استخراج افزایشی از دیتابیس منبع: Execution failed on sql '
+            SELECT * 
+            FROM DarkhastFaktor 
+            WHERE ModifiedDate > '1900-01-01 00:00:00.000'
+        ': (pyodbc.ProgrammingError) ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'ModifiedDate'. (207) (SQLExecDirectW)")
+[SQL: 
+            SELECT * 
+            FROM DarkhastFaktor 
+            WHERE ModifiedDate > '1900-01-01 00:00:00.000'
+        ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-05-23 11:41:56,772 - load_sales_dw - ERROR - ❌ خطا در بارگذاری هدر فاکتورها: Execution failed on sql '
+            SELECT * 
+            FROM DarkhastFaktor 
+            WHERE ModifiedDate > '1900-01-01 00:00:00.000'
+        ': (pyodbc.ProgrammingError) ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'ModifiedDate'. (207) (SQLExecDirectW)")
+[SQL: 
+            SELECT * 
+            FROM DarkhastFaktor 
+            WHERE ModifiedDate > '1900-01-01 00:00:00.000'
+        ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-05-23 11:41:56,773 - load_sales_dw - ERROR - فاز ۱ (هدر) با خطا مواجه شد: Execution failed on sql '
+            SELECT * 
+            FROM DarkhastFaktor 
+            WHERE ModifiedDate > '1900-01-01 00:00:00.000'
+        ': (pyodbc.ProgrammingError) ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'ModifiedDate'. (207) (SQLExecDirectW)")
+[SQL: 
+            SELECT * 
+            FROM DarkhastFaktor 
+            WHERE ModifiedDate > '1900-01-01 00:00:00.000'
+        ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-05-23 11:41:56,774 - load_sales_dw - INFO - ============================================================
+2026-05-23 11:41:56,774 - load_sales_dw - INFO - 🔄 شروع بارگذاری ردیف فاکتورهای فروش
+2026-05-23 11:41:56,775 - load_sales_dw - INFO - ============================================================
+2026-05-23 11:41:56,836 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_detail هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 11:41:56,837 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_detail. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 11:41:56,937 - extractor - ERROR - 🚨 خطا در فرآیند استخراج افزایشی از دیتابیس منبع: Execution failed on sql '
+            SELECT * 
+            FROM DarkhastFaktorSatr 
+            WHERE ModifiedDate > '1900-01-01 00:00:00.000'
+        ': (pyodbc.ProgrammingError) ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'ModifiedDate'. (207) (SQLExecDirectW)")
+[SQL: 
+            SELECT * 
+            FROM DarkhastFaktorSatr 
+            WHERE ModifiedDate > '1900-01-01 00:00:00.000'
+        ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-05-23 11:41:56,938 - load_sales_dw - ERROR - ❌ خطا در بارگذاری ردیف فاکتورها: Execution failed on sql '
+            SELECT * 
+            FROM DarkhastFaktorSatr 
+            WHERE ModifiedDate > '1900-01-01 00:00:00.000'
+        ': (pyodbc.ProgrammingError) ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'ModifiedDate'. (207) (SQLExecDirectW)")
+[SQL: 
+            SELECT * 
+            FROM DarkhastFaktorSatr 
+            WHERE ModifiedDate > '1900-01-01 00:00:00.000'
+        ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-05-23 11:41:56,938 - load_sales_dw - ERROR - فاز ۲ (ردیف) با خطا مواجه شد: Execution failed on sql '
+            SELECT * 
+            FROM DarkhastFaktorSatr 
+            WHERE ModifiedDate > '1900-01-01 00:00:00.000'
+        ': (pyodbc.ProgrammingError) ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'ModifiedDate'. (207) (SQLExecDirectW)")
+[SQL: 
+            SELECT * 
+            FROM DarkhastFaktorSatr 
+            WHERE ModifiedDate > '1900-01-01 00:00:00.000'
+        ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-05-23 11:41:56,939 - load_sales_dw - INFO - ============================================================
+2026-05-23 11:41:56,940 - load_sales_dw - INFO - 📊 گزارش نهایی بارگذاری فروش:
+2026-05-23 11:41:56,941 - load_sales_dw - INFO -    هدر: failed - 0 رکورد
+2026-05-23 11:41:56,941 - load_sales_dw - INFO -    ردیف: failed - 0 رکورد
+2026-05-23 11:41:56,942 - load_sales_dw - INFO -    مجموع: 0 رکورد
+2026-05-23 11:41:56,943 - load_sales_dw - INFO -    زمان: 0.50 ثانیه
+2026-05-23 11:41:56,944 - load_sales_dw - INFO - ============================================================
+2026-05-23 11:48:55,711 - load_sales_dw - INFO - ============================================================
+2026-05-23 11:48:55,712 - load_sales_dw - INFO - 🔄 شروع بارگذاری هدر فاکتورهای فروش
+2026-05-23 11:48:55,712 - load_sales_dw - INFO - ============================================================
+2026-05-23 11:48:55,820 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_header هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 11:48:55,820 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_header. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 11:48:55,966 - extractor - ERROR - 🚨 خطا در فرآیند استخراج افزایشی از دیتابیس منبع: Execution failed on sql '
+            SELECT * 
+            FROM DarkhastFaktor 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ': (pyodbc.ProgrammingError) ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TarikhEntry'. (207) (SQLExecDirectW)")
+[SQL: 
+            SELECT * 
+            FROM DarkhastFaktor 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-05-23 11:48:55,966 - load_sales_dw - ERROR - ❌ خطا در بارگذاری هدر فاکتورها: Execution failed on sql '
+            SELECT * 
+            FROM DarkhastFaktor 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ': (pyodbc.ProgrammingError) ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TarikhEntry'. (207) (SQLExecDirectW)")
+[SQL: 
+            SELECT * 
+            FROM DarkhastFaktor 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-05-23 11:48:55,966 - load_sales_dw - ERROR - فاز ۱ (هدر) با خطا مواجه شد: Execution failed on sql '
+            SELECT * 
+            FROM DarkhastFaktor 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ': (pyodbc.ProgrammingError) ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TarikhEntry'. (207) (SQLExecDirectW)")
+[SQL: 
+            SELECT * 
+            FROM DarkhastFaktor 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-05-23 11:48:55,967 - load_sales_dw - INFO - ============================================================
+2026-05-23 11:48:55,967 - load_sales_dw - INFO - 🔄 شروع بارگذاری ردیف فاکتورهای فروش
+2026-05-23 11:48:55,967 - load_sales_dw - INFO - ============================================================
+2026-05-23 11:48:56,026 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_detail هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 11:48:56,026 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_detail. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 11:48:56,120 - extractor - ERROR - 🚨 خطا در فرآیند استخراج افزایشی از دیتابیس منبع: Execution failed on sql '
+            SELECT * 
+            FROM DarkhastFaktorSatr 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ': (pyodbc.ProgrammingError) ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TarikhEntry'. (207) (SQLExecDirectW)")
+[SQL: 
+            SELECT * 
+            FROM DarkhastFaktorSatr 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-05-23 11:48:56,121 - load_sales_dw - ERROR - ❌ خطا در بارگذاری ردیف فاکتورها: Execution failed on sql '
+            SELECT * 
+            FROM DarkhastFaktorSatr 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ': (pyodbc.ProgrammingError) ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TarikhEntry'. (207) (SQLExecDirectW)")
+[SQL: 
+            SELECT * 
+            FROM DarkhastFaktorSatr 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-05-23 11:48:56,122 - load_sales_dw - ERROR - فاز ۲ (ردیف) با خطا مواجه شد: Execution failed on sql '
+            SELECT * 
+            FROM DarkhastFaktorSatr 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ': (pyodbc.ProgrammingError) ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TarikhEntry'. (207) (SQLExecDirectW)")
+[SQL: 
+            SELECT * 
+            FROM DarkhastFaktorSatr 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-05-23 11:48:56,123 - load_sales_dw - INFO - ============================================================
+2026-05-23 11:48:56,123 - load_sales_dw - INFO - 📊 گزارش نهایی بارگذاری فروش:
+2026-05-23 11:48:56,124 - load_sales_dw - INFO -    هدر: failed - 0 رکورد
+2026-05-23 11:48:56,125 - load_sales_dw - INFO -    ردیف: failed - 0 رکورد
+2026-05-23 11:48:56,125 - load_sales_dw - INFO -    مجموع: 0 رکورد
+2026-05-23 11:48:56,126 - load_sales_dw - INFO -    زمان: 0.41 ثانیه
+2026-05-23 11:48:56,126 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:46:15,249 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:46:15,250 - load_sales_dw - INFO - 🔄 شروع بارگذاری هدر فاکتورهای فروش
+2026-05-23 13:46:15,250 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:46:15,405 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_header هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 13:46:15,406 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_header. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 13:46:16,298 - extractor - ERROR - 🚨 خطا در فرآیند استخراج افزایشی از دیتابیس منبع: Execution failed on sql '
+            SELECT * 
+            FROM DarkhastFaktor 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ': (pyodbc.ProgrammingError) ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TarikhEntry'. (207) (SQLExecDirectW)")
+[SQL: 
+            SELECT * 
+            FROM DarkhastFaktor 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-05-23 13:46:16,298 - load_sales_dw - ERROR - ❌ خطا در بارگذاری هدر فاکتورها: Execution failed on sql '
+            SELECT * 
+            FROM DarkhastFaktor 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ': (pyodbc.ProgrammingError) ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TarikhEntry'. (207) (SQLExecDirectW)")
+[SQL: 
+            SELECT * 
+            FROM DarkhastFaktor 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-05-23 13:46:16,298 - load_sales_dw - ERROR - فاز ۱ (هدر) با خطا مواجه شد: Execution failed on sql '
+            SELECT * 
+            FROM DarkhastFaktor 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ': (pyodbc.ProgrammingError) ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TarikhEntry'. (207) (SQLExecDirectW)")
+[SQL: 
+            SELECT * 
+            FROM DarkhastFaktor 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-05-23 13:46:16,299 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:46:16,299 - load_sales_dw - INFO - 🔄 شروع بارگذاری ردیف فاکتورهای فروش
+2026-05-23 13:46:16,299 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:46:16,394 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_detail هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 13:46:16,394 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_detail. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 13:46:17,118 - extractor - ERROR - 🚨 خطا در فرآیند استخراج افزایشی از دیتابیس منبع: Execution failed on sql '
+            SELECT * 
+            FROM DarkhastFaktorSatr 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ': (pyodbc.ProgrammingError) ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TarikhEntry'. (207) (SQLExecDirectW)")
+[SQL: 
+            SELECT * 
+            FROM DarkhastFaktorSatr 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-05-23 13:46:17,119 - load_sales_dw - ERROR - ❌ خطا در بارگذاری ردیف فاکتورها: Execution failed on sql '
+            SELECT * 
+            FROM DarkhastFaktorSatr 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ': (pyodbc.ProgrammingError) ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TarikhEntry'. (207) (SQLExecDirectW)")
+[SQL: 
+            SELECT * 
+            FROM DarkhastFaktorSatr 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-05-23 13:46:17,119 - load_sales_dw - ERROR - فاز ۲ (ردیف) با خطا مواجه شد: Execution failed on sql '
+            SELECT * 
+            FROM DarkhastFaktorSatr 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ': (pyodbc.ProgrammingError) ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'TarikhEntry'. (207) (SQLExecDirectW)")
+[SQL: 
+            SELECT * 
+            FROM DarkhastFaktorSatr 
+            WHERE TarikhEntry > '1900-01-01 00:00:00.000'
+        ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-05-23 13:46:17,120 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:46:17,120 - load_sales_dw - INFO - 📊 گزارش نهایی بارگذاری فروش:
+2026-05-23 13:46:17,121 - load_sales_dw - INFO -    هدر: failed - 0 رکورد
+2026-05-23 13:46:17,122 - load_sales_dw - INFO -    ردیف: failed - 0 رکورد
+2026-05-23 13:46:17,123 - load_sales_dw - INFO -    مجموع: 0 رکورد
+2026-05-23 13:46:17,124 - load_sales_dw - INFO -    زمان: 1.87 ثانیه
+2026-05-23 13:46:17,124 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:47:44,359 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:47:44,360 - load_sales_dw - INFO - 🔄 شروع بارگذاری هدر فاکتورهای فروش
+2026-05-23 13:47:44,360 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:47:44,486 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_header هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 13:47:44,487 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_header. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 13:47:45,055 - load_sales_dw - ERROR - ❌ خطا در بارگذاری هدر فاکتورها: 'DataLoader' object has no attribute 'bulk_copy_idempotent'
+2026-05-23 13:47:45,055 - load_sales_dw - ERROR - فاز ۱ (هدر) با خطا مواجه شد: 'DataLoader' object has no attribute 'bulk_copy_idempotent'
+2026-05-23 13:47:45,056 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:47:45,056 - load_sales_dw - INFO - 🔄 شروع بارگذاری ردیف فاکتورهای فروش
+2026-05-23 13:47:45,057 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:47:45,102 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_detail هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 13:47:45,102 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_detail. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 13:47:45,231 - extractor - INFO - ✔️ تمام داده‌های جدول DarkhastFaktorSatr به روز هستند.
+2026-05-23 13:47:45,232 - load_sales_dw - INFO - ✅ مجموع: 0 ردیف فاکتور بارگذاری شد
+2026-05-23 13:47:45,233 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:47:45,233 - load_sales_dw - INFO - 📊 گزارش نهایی بارگذاری فروش:
+2026-05-23 13:47:45,234 - load_sales_dw - INFO -    هدر: failed - 0 رکورد
+2026-05-23 13:47:45,234 - load_sales_dw - INFO -    ردیف: success - 0 رکورد
+2026-05-23 13:47:45,235 - load_sales_dw - INFO -    مجموع: 0 رکورد
+2026-05-23 13:47:45,235 - load_sales_dw - INFO -    زمان: 0.87 ثانیه
+2026-05-23 13:47:45,235 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:48:39,066 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:48:39,067 - load_sales_dw - INFO - 🔄 شروع بارگذاری هدر فاکتورهای فروش
+2026-05-23 13:48:39,067 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:48:39,233 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_header هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 13:48:39,233 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_header. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 13:48:39,595 - decorators - WARNING - ⚠️ تلاش 1/3 برای [bulk_copy] ناموفق. خطا: DataLoader.bulk_copy() got an unexpected keyword argument 'key_columns'. تلاش مجدد در 5 ثانیه...
+2026-05-23 13:48:44,596 - decorators - WARNING - ⚠️ تلاش 2/3 برای [bulk_copy] ناموفق. خطا: DataLoader.bulk_copy() got an unexpected keyword argument 'key_columns'. تلاش مجدد در 10 ثانیه...
+2026-05-23 13:48:54,598 - decorators - ERROR - 🚨 [bulk_copy] پس از 3 تلاش کاملاً شکست خورد. آخرین خطا: DataLoader.bulk_copy() got an unexpected keyword argument 'key_columns'
+2026-05-23 13:48:54,625 - load_sales_dw - ERROR - ❌ خطا در بارگذاری هدر فاکتورها: DataLoader.bulk_copy() got an unexpected keyword argument 'key_columns'
+2026-05-23 13:48:54,625 - load_sales_dw - ERROR - فاز ۱ (هدر) با خطا مواجه شد: DataLoader.bulk_copy() got an unexpected keyword argument 'key_columns'
+2026-05-23 13:48:54,625 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:48:54,626 - load_sales_dw - INFO - 🔄 شروع بارگذاری ردیف فاکتورهای فروش
+2026-05-23 13:48:54,626 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:48:54,677 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_detail هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 13:48:54,678 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_detail. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 13:48:54,775 - extractor - INFO - ✔️ تمام داده‌های جدول DarkhastFaktorSatr به روز هستند.
+2026-05-23 13:48:54,776 - load_sales_dw - INFO - ✅ مجموع: 0 ردیف فاکتور بارگذاری شد
+2026-05-23 13:48:54,776 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:48:54,777 - load_sales_dw - INFO - 📊 گزارش نهایی بارگذاری فروش:
+2026-05-23 13:48:54,777 - load_sales_dw - INFO -    هدر: failed - 0 رکورد
+2026-05-23 13:48:54,777 - load_sales_dw - INFO -    ردیف: success - 0 رکورد
+2026-05-23 13:48:54,777 - load_sales_dw - INFO -    مجموع: 0 رکورد
+2026-05-23 13:48:54,778 - load_sales_dw - INFO -    زمان: 15.71 ثانیه
+2026-05-23 13:48:54,778 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:49:40,261 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:49:40,262 - load_sales_dw - INFO - 🔄 شروع بارگذاری هدر فاکتورهای فروش
+2026-05-23 13:49:40,262 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:49:40,616 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_header هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 13:49:40,616 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_header. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 13:49:41,045 - decorators - WARNING - ⚠️ تلاش 1/3 برای [bulk_copy] ناموفق. خطا: DataLoader.bulk_copy() got an unexpected keyword argument 'key_columns'. تلاش مجدد در 5 ثانیه...
+2026-05-23 13:49:46,046 - decorators - WARNING - ⚠️ تلاش 2/3 برای [bulk_copy] ناموفق. خطا: DataLoader.bulk_copy() got an unexpected keyword argument 'key_columns'. تلاش مجدد در 10 ثانیه...
+2026-05-23 13:49:56,047 - decorators - ERROR - 🚨 [bulk_copy] پس از 3 تلاش کاملاً شکست خورد. آخرین خطا: DataLoader.bulk_copy() got an unexpected keyword argument 'key_columns'
+2026-05-23 13:49:56,066 - load_sales_dw - ERROR - ❌ خطا در بارگذاری هدر فاکتورها: DataLoader.bulk_copy() got an unexpected keyword argument 'key_columns'
+2026-05-23 13:49:56,067 - load_sales_dw - ERROR - فاز ۱ (هدر) با خطا مواجه شد: DataLoader.bulk_copy() got an unexpected keyword argument 'key_columns'
+2026-05-23 13:49:56,067 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:49:56,068 - load_sales_dw - INFO - 🔄 شروع بارگذاری ردیف فاکتورهای فروش
+2026-05-23 13:49:56,068 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:49:56,158 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_detail هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 13:49:56,160 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_detail. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 13:49:56,266 - extractor - INFO - ✔️ تمام داده‌های جدول DarkhastFaktorSatr به روز هستند.
+2026-05-23 13:49:56,266 - load_sales_dw - INFO - ✅ مجموع: 0 ردیف فاکتور بارگذاری شد
+2026-05-23 13:49:56,267 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:49:56,267 - load_sales_dw - INFO - 📊 گزارش نهایی بارگذاری فروش:
+2026-05-23 13:49:56,267 - load_sales_dw - INFO -    هدر: failed - 0 رکورد
+2026-05-23 13:49:56,268 - load_sales_dw - INFO -    ردیف: success - 0 رکورد
+2026-05-23 13:49:56,268 - load_sales_dw - INFO -    مجموع: 0 رکورد
+2026-05-23 13:49:56,268 - load_sales_dw - INFO -    زمان: 16.01 ثانیه
+2026-05-23 13:49:56,269 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:51:11,616 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:51:11,617 - load_sales_dw - INFO - 🔄 شروع بارگذاری هدر فاکتورهای فروش
+2026-05-23 13:51:11,617 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:51:11,751 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_header هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 13:51:11,751 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_header. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 13:51:12,167 - loader - ERROR - ❌ شکست عملیات جابه‌جایی انبوه در جدول fact_sales_header: column "distribution_center_id" of relation "fact_sales_header" does not exist
+
+2026-05-23 13:51:12,168 - decorators - WARNING - ⚠️ تلاش 1/3 برای [bulk_copy] ناموفق. خطا: column "distribution_center_id" of relation "fact_sales_header" does not exist
+. تلاش مجدد در 5 ثانیه...
+2026-05-23 13:51:17,175 - loader - ERROR - ❌ شکست عملیات جابه‌جایی انبوه در جدول fact_sales_header: column "distribution_center_id" of relation "fact_sales_header" does not exist
+
+2026-05-23 13:51:17,176 - decorators - WARNING - ⚠️ تلاش 2/3 برای [bulk_copy] ناموفق. خطا: column "distribution_center_id" of relation "fact_sales_header" does not exist
+. تلاش مجدد در 10 ثانیه...
+2026-05-23 13:51:27,183 - loader - ERROR - ❌ شکست عملیات جابه‌جایی انبوه در جدول fact_sales_header: column "distribution_center_id" of relation "fact_sales_header" does not exist
+
+2026-05-23 13:51:27,184 - decorators - ERROR - 🚨 [bulk_copy] پس از 3 تلاش کاملاً شکست خورد. آخرین خطا: column "distribution_center_id" of relation "fact_sales_header" does not exist
+
+2026-05-23 13:51:27,203 - load_sales_dw - ERROR - ❌ خطا در بارگذاری هدر فاکتورها: column "distribution_center_id" of relation "fact_sales_header" does not exist
+
+2026-05-23 13:51:27,203 - load_sales_dw - ERROR - فاز ۱ (هدر) با خطا مواجه شد: column "distribution_center_id" of relation "fact_sales_header" does not exist
+
+2026-05-23 13:51:27,204 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:51:27,204 - load_sales_dw - INFO - 🔄 شروع بارگذاری ردیف فاکتورهای فروش
+2026-05-23 13:51:27,205 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:51:27,334 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_detail هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 13:51:27,334 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_detail. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 13:51:27,423 - extractor - INFO - ✔️ تمام داده‌های جدول DarkhastFaktorSatr به روز هستند.
+2026-05-23 13:51:27,423 - load_sales_dw - INFO - ✅ مجموع: 0 ردیف فاکتور بارگذاری شد
+2026-05-23 13:51:27,424 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:51:27,424 - load_sales_dw - INFO - 📊 گزارش نهایی بارگذاری فروش:
+2026-05-23 13:51:27,425 - load_sales_dw - INFO -    هدر: failed - 0 رکورد
+2026-05-23 13:51:27,425 - load_sales_dw - INFO -    ردیف: success - 0 رکورد
+2026-05-23 13:51:27,425 - load_sales_dw - INFO -    مجموع: 0 رکورد
+2026-05-23 13:51:27,426 - load_sales_dw - INFO -    زمان: 15.81 ثانیه
+2026-05-23 13:51:27,426 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:52:13,548 - loader - INFO - ✅ اجرای DDL با موفقیت انجام شد.
+2026-05-23 13:52:22,379 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:52:22,379 - load_sales_dw - INFO - 🔄 شروع بارگذاری هدر فاکتورهای فروش
+2026-05-23 13:52:22,380 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:52:22,542 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_header هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 13:52:22,542 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_header. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 13:52:23,025 - loader - ERROR - ❌ شکست عملیات جابه‌جایی انبوه در جدول fact_sales_header: column "distribution_center_id" of relation "fact_sales_header" does not exist
+
+2026-05-23 13:52:23,026 - decorators - WARNING - ⚠️ تلاش 1/3 برای [bulk_copy] ناموفق. خطا: column "distribution_center_id" of relation "fact_sales_header" does not exist
+. تلاش مجدد در 5 ثانیه...
+2026-05-23 13:52:28,032 - loader - ERROR - ❌ شکست عملیات جابه‌جایی انبوه در جدول fact_sales_header: column "distribution_center_id" of relation "fact_sales_header" does not exist
+
+2026-05-23 13:52:28,033 - decorators - WARNING - ⚠️ تلاش 2/3 برای [bulk_copy] ناموفق. خطا: column "distribution_center_id" of relation "fact_sales_header" does not exist
+. تلاش مجدد در 10 ثانیه...
+2026-05-23 13:52:38,038 - loader - ERROR - ❌ شکست عملیات جابه‌جایی انبوه در جدول fact_sales_header: column "distribution_center_id" of relation "fact_sales_header" does not exist
+
+2026-05-23 13:52:38,039 - decorators - ERROR - 🚨 [bulk_copy] پس از 3 تلاش کاملاً شکست خورد. آخرین خطا: column "distribution_center_id" of relation "fact_sales_header" does not exist
+
+2026-05-23 13:52:38,060 - load_sales_dw - ERROR - ❌ خطا در بارگذاری هدر فاکتورها: column "distribution_center_id" of relation "fact_sales_header" does not exist
+
+2026-05-23 13:52:38,061 - load_sales_dw - ERROR - فاز ۱ (هدر) با خطا مواجه شد: column "distribution_center_id" of relation "fact_sales_header" does not exist
+
+2026-05-23 13:52:38,061 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:52:38,062 - load_sales_dw - INFO - 🔄 شروع بارگذاری ردیف فاکتورهای فروش
+2026-05-23 13:52:38,062 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:52:38,120 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_detail هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 13:52:38,120 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_detail. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 13:52:38,222 - extractor - INFO - ✔️ تمام داده‌های جدول DarkhastFaktorSatr به روز هستند.
+2026-05-23 13:52:38,222 - load_sales_dw - INFO - ✅ مجموع: 0 ردیف فاکتور بارگذاری شد
+2026-05-23 13:52:38,223 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:52:38,223 - load_sales_dw - INFO - 📊 گزارش نهایی بارگذاری فروش:
+2026-05-23 13:52:38,224 - load_sales_dw - INFO -    هدر: failed - 0 رکورد
+2026-05-23 13:52:38,224 - load_sales_dw - INFO -    ردیف: success - 0 رکورد
+2026-05-23 13:52:38,225 - load_sales_dw - INFO -    مجموع: 0 رکورد
+2026-05-23 13:52:38,226 - load_sales_dw - INFO -    زمان: 15.84 ثانیه
+2026-05-23 13:52:38,227 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:53:19,750 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:53:19,751 - load_sales_dw - INFO - 🔄 شروع بارگذاری هدر فاکتورهای فروش
+2026-05-23 13:53:19,751 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:53:19,887 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_header هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 13:53:19,888 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_header. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 13:53:20,158 - loader - ERROR - ❌ شکست عملیات جابه‌جایی انبوه در جدول fact_sales_header: column "sales_group_id" of relation "fact_sales_header" does not exist
+
+2026-05-23 13:53:20,158 - decorators - WARNING - ⚠️ تلاش 1/3 برای [bulk_copy] ناموفق. خطا: column "sales_group_id" of relation "fact_sales_header" does not exist
+. تلاش مجدد در 5 ثانیه...
+2026-05-23 13:53:25,162 - loader - ERROR - ❌ شکست عملیات جابه‌جایی انبوه در جدول fact_sales_header: column "sales_group_id" of relation "fact_sales_header" does not exist
+
+2026-05-23 13:53:25,162 - decorators - WARNING - ⚠️ تلاش 2/3 برای [bulk_copy] ناموفق. خطا: column "sales_group_id" of relation "fact_sales_header" does not exist
+. تلاش مجدد در 10 ثانیه...
+2026-05-23 13:53:35,165 - loader - ERROR - ❌ شکست عملیات جابه‌جایی انبوه در جدول fact_sales_header: column "sales_group_id" of relation "fact_sales_header" does not exist
+
+2026-05-23 13:53:35,165 - decorators - ERROR - 🚨 [bulk_copy] پس از 3 تلاش کاملاً شکست خورد. آخرین خطا: column "sales_group_id" of relation "fact_sales_header" does not exist
+
+2026-05-23 13:53:35,182 - load_sales_dw - ERROR - ❌ خطا در بارگذاری هدر فاکتورها: column "sales_group_id" of relation "fact_sales_header" does not exist
+
+2026-05-23 13:53:35,183 - load_sales_dw - ERROR - فاز ۱ (هدر) با خطا مواجه شد: column "sales_group_id" of relation "fact_sales_header" does not exist
+
+2026-05-23 13:53:35,184 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:53:35,185 - load_sales_dw - INFO - 🔄 شروع بارگذاری ردیف فاکتورهای فروش
+2026-05-23 13:53:35,186 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:53:35,266 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_detail هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 13:53:35,267 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_detail. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 13:53:35,362 - extractor - INFO - ✔️ تمام داده‌های جدول DarkhastFaktorSatr به روز هستند.
+2026-05-23 13:53:35,363 - load_sales_dw - INFO - ✅ مجموع: 0 ردیف فاکتور بارگذاری شد
+2026-05-23 13:53:35,364 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:53:35,364 - load_sales_dw - INFO - 📊 گزارش نهایی بارگذاری فروش:
+2026-05-23 13:53:35,365 - load_sales_dw - INFO -    هدر: failed - 0 رکورد
+2026-05-23 13:53:35,365 - load_sales_dw - INFO -    ردیف: success - 0 رکورد
+2026-05-23 13:53:35,365 - load_sales_dw - INFO -    مجموع: 0 رکورد
+2026-05-23 13:53:35,366 - load_sales_dw - INFO -    زمان: 15.61 ثانیه
+2026-05-23 13:53:35,366 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:54:31,103 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:54:31,104 - load_sales_dw - INFO - 🔄 شروع بارگذاری هدر فاکتورهای فروش
+2026-05-23 13:54:31,104 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:54:31,228 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_header هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 13:54:31,228 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_header. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 13:54:31,531 - loader - INFO - ✨ تعداد 10 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:54:31,531 - load_sales_dw - INFO -   📦 Chunk #1: 10 هدر فاکتور بارگذاری شد
+2026-05-23 13:54:31,565 - loader - INFO - ✨ تعداد 10 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:54:31,565 - load_sales_dw - INFO -   📦 Chunk #2: 10 هدر فاکتور بارگذاری شد
+2026-05-23 13:54:31,588 - loader - INFO - ✨ تعداد 10 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:54:31,589 - load_sales_dw - INFO -   📦 Chunk #3: 10 هدر فاکتور بارگذاری شد
+2026-05-23 13:54:31,615 - loader - INFO - ✨ تعداد 10 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:54:31,615 - load_sales_dw - INFO -   📦 Chunk #4: 10 هدر فاکتور بارگذاری شد
+2026-05-23 13:54:31,644 - loader - INFO - ✨ تعداد 10 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:54:31,645 - load_sales_dw - INFO -   📦 Chunk #5: 10 هدر فاکتور بارگذاری شد
+2026-05-23 13:54:31,672 - loader - INFO - ✨ تعداد 10 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:54:31,673 - load_sales_dw - INFO -   📦 Chunk #6: 10 هدر فاکتور بارگذاری شد
+2026-05-23 13:54:31,706 - loader - INFO - ✨ تعداد 10 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:54:31,707 - load_sales_dw - INFO -   📦 Chunk #7: 10 هدر فاکتور بارگذاری شد
+2026-05-23 13:54:31,740 - loader - INFO - ✨ تعداد 10 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:54:31,740 - load_sales_dw - INFO -   📦 Chunk #8: 10 هدر فاکتور بارگذاری شد
+2026-05-23 13:54:31,771 - loader - INFO - ✨ تعداد 10 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:54:31,772 - load_sales_dw - INFO -   📦 Chunk #9: 10 هدر فاکتور بارگذاری شد
+2026-05-23 13:54:31,798 - loader - INFO - ✨ تعداد 10 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:54:31,798 - load_sales_dw - INFO -   📦 Chunk #10: 10 هدر فاکتور بارگذاری شد
+2026-05-23 13:54:31,823 - loader - INFO - ✨ تعداد 10 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:54:31,823 - load_sales_dw - INFO -   📦 Chunk #11: 10 هدر فاکتور بارگذاری شد
+2026-05-23 13:54:31,846 - loader - INFO - ✨ تعداد 10 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:54:31,847 - load_sales_dw - INFO -   📦 Chunk #12: 10 هدر فاکتور بارگذاری شد
+2026-05-23 13:54:31,877 - loader - ERROR - ❌ شکست عملیات جابه‌جایی انبوه در جدول fact_sales_header: duplicate key value violates unique constraint "fact_sales_header_pkey"
+DETAIL:  Key (sales_header_id, year)=(20788, 1391) already exists.
+CONTEXT:  COPY fact_sales_header, line 4
+
+2026-05-23 13:54:31,877 - decorators - WARNING - ⚠️ تلاش 1/3 برای [bulk_copy] ناموفق. خطا: duplicate key value violates unique constraint "fact_sales_header_pkey"
+DETAIL:  Key (sales_header_id, year)=(20788, 1391) already exists.
+CONTEXT:  COPY fact_sales_header, line 4
+. تلاش مجدد در 5 ثانیه...
+2026-05-23 13:54:36,883 - loader - ERROR - ❌ شکست عملیات جابه‌جایی انبوه در جدول fact_sales_header: duplicate key value violates unique constraint "fact_sales_header_pkey"
+DETAIL:  Key (sales_header_id, year)=(20788, 1391) already exists.
+CONTEXT:  COPY fact_sales_header, line 4
+
+2026-05-23 13:54:36,884 - decorators - WARNING - ⚠️ تلاش 2/3 برای [bulk_copy] ناموفق. خطا: duplicate key value violates unique constraint "fact_sales_header_pkey"
+DETAIL:  Key (sales_header_id, year)=(20788, 1391) already exists.
+CONTEXT:  COPY fact_sales_header, line 4
+. تلاش مجدد در 10 ثانیه...
+2026-05-23 13:54:46,888 - loader - ERROR - ❌ شکست عملیات جابه‌جایی انبوه در جدول fact_sales_header: duplicate key value violates unique constraint "fact_sales_header_pkey"
+DETAIL:  Key (sales_header_id, year)=(20788, 1391) already exists.
+CONTEXT:  COPY fact_sales_header, line 4
+
+2026-05-23 13:54:46,889 - decorators - ERROR - 🚨 [bulk_copy] پس از 3 تلاش کاملاً شکست خورد. آخرین خطا: duplicate key value violates unique constraint "fact_sales_header_pkey"
+DETAIL:  Key (sales_header_id, year)=(20788, 1391) already exists.
+CONTEXT:  COPY fact_sales_header, line 4
+
+2026-05-23 13:54:46,906 - load_sales_dw - ERROR - ❌ خطا در بارگذاری هدر فاکتورها: duplicate key value violates unique constraint "fact_sales_header_pkey"
+DETAIL:  Key (sales_header_id, year)=(20788, 1391) already exists.
+CONTEXT:  COPY fact_sales_header, line 4
+
+2026-05-23 13:54:46,907 - load_sales_dw - ERROR - فاز ۱ (هدر) با خطا مواجه شد: duplicate key value violates unique constraint "fact_sales_header_pkey"
+DETAIL:  Key (sales_header_id, year)=(20788, 1391) already exists.
+CONTEXT:  COPY fact_sales_header, line 4
+
+2026-05-23 13:54:46,908 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:54:46,909 - load_sales_dw - INFO - 🔄 شروع بارگذاری ردیف فاکتورهای فروش
+2026-05-23 13:54:46,909 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:54:46,981 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_detail هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 13:54:46,982 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_detail. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 13:54:47,088 - extractor - INFO - ✔️ تمام داده‌های جدول DarkhastFaktorSatr به روز هستند.
+2026-05-23 13:54:47,089 - load_sales_dw - INFO - ✅ مجموع: 0 ردیف فاکتور بارگذاری شد
+2026-05-23 13:54:47,090 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:54:47,090 - load_sales_dw - INFO - 📊 گزارش نهایی بارگذاری فروش:
+2026-05-23 13:54:47,091 - load_sales_dw - INFO -    هدر: failed - 0 رکورد
+2026-05-23 13:54:47,091 - load_sales_dw - INFO -    ردیف: success - 0 رکورد
+2026-05-23 13:54:47,091 - load_sales_dw - INFO -    مجموع: 0 رکورد
+2026-05-23 13:54:47,092 - load_sales_dw - INFO -    زمان: 15.99 ثانیه
+2026-05-23 13:54:47,092 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:58:03,351 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:58:03,351 - load_sales_dw - INFO - 🔄 شروع بارگذاری هدر فاکتورهای فروش
+2026-05-23 13:58:03,352 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:58:03,470 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_header هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 13:58:03,471 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_header. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 13:58:04,011 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:04,012 - load_sales_dw - INFO -   📦 Chunk #1: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:04,254 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:04,255 - load_sales_dw - INFO -   📦 Chunk #2: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:04,527 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:04,527 - load_sales_dw - INFO -   📦 Chunk #3: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:04,758 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:04,759 - load_sales_dw - INFO -   📦 Chunk #4: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:05,026 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:05,027 - load_sales_dw - INFO -   📦 Chunk #5: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:05,298 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:05,299 - load_sales_dw - INFO -   📦 Chunk #6: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:05,550 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:05,550 - load_sales_dw - INFO -   📦 Chunk #7: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:05,791 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:05,792 - load_sales_dw - INFO -   📦 Chunk #8: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:06,030 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:06,031 - load_sales_dw - INFO -   📦 Chunk #9: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:06,292 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:06,293 - load_sales_dw - INFO -   📦 Chunk #10: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:06,523 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:06,524 - load_sales_dw - INFO -   📦 Chunk #11: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:06,761 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:06,762 - load_sales_dw - INFO -   📦 Chunk #12: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:06,996 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:06,997 - load_sales_dw - INFO -   📦 Chunk #13: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:07,267 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:07,267 - load_sales_dw - INFO -   📦 Chunk #14: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:07,518 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:07,519 - load_sales_dw - INFO -   📦 Chunk #15: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:07,765 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:07,766 - load_sales_dw - INFO -   📦 Chunk #16: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:08,004 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:08,004 - load_sales_dw - INFO -   📦 Chunk #17: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:08,239 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:08,240 - load_sales_dw - INFO -   📦 Chunk #18: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:08,472 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:08,472 - load_sales_dw - INFO -   📦 Chunk #19: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:08,719 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:08,720 - load_sales_dw - INFO -   📦 Chunk #20: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:08,960 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:08,961 - load_sales_dw - INFO -   📦 Chunk #21: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:09,214 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:09,214 - load_sales_dw - INFO -   📦 Chunk #22: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:09,472 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:09,473 - load_sales_dw - INFO -   📦 Chunk #23: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:09,725 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:09,725 - load_sales_dw - INFO -   📦 Chunk #24: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:10,037 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:10,038 - load_sales_dw - INFO -   📦 Chunk #25: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:10,313 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:10,313 - load_sales_dw - INFO -   📦 Chunk #26: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:10,605 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:10,605 - load_sales_dw - INFO -   📦 Chunk #27: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:10,915 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:10,916 - load_sales_dw - INFO -   📦 Chunk #28: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:11,177 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:11,178 - load_sales_dw - INFO -   📦 Chunk #29: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:11,463 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:11,464 - load_sales_dw - INFO -   📦 Chunk #30: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:11,715 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:11,716 - load_sales_dw - INFO -   📦 Chunk #31: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:11,967 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:11,967 - load_sales_dw - INFO -   📦 Chunk #32: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:12,198 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:12,199 - load_sales_dw - INFO -   📦 Chunk #33: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:12,417 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:12,417 - load_sales_dw - INFO -   📦 Chunk #34: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:12,697 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:12,698 - load_sales_dw - INFO -   📦 Chunk #35: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:12,957 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:12,958 - load_sales_dw - INFO -   📦 Chunk #36: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:13,198 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:13,198 - load_sales_dw - INFO -   📦 Chunk #37: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:13,425 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:13,426 - load_sales_dw - INFO -   📦 Chunk #38: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:13,665 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:13,665 - load_sales_dw - INFO -   📦 Chunk #39: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:13,907 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:13,908 - load_sales_dw - INFO -   📦 Chunk #40: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:14,156 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:14,156 - load_sales_dw - INFO -   📦 Chunk #41: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:14,392 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:14,392 - load_sales_dw - INFO -   📦 Chunk #42: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:14,627 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:14,628 - load_sales_dw - INFO -   📦 Chunk #43: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:14,888 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:14,888 - load_sales_dw - INFO -   📦 Chunk #44: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:15,133 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:15,133 - load_sales_dw - INFO -   📦 Chunk #45: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:15,362 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:15,362 - load_sales_dw - INFO -   📦 Chunk #46: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:15,588 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:15,588 - load_sales_dw - INFO -   📦 Chunk #47: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:15,803 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:15,804 - load_sales_dw - INFO -   📦 Chunk #48: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:16,170 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:16,171 - load_sales_dw - INFO -   📦 Chunk #49: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:16,392 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:16,392 - load_sales_dw - INFO -   📦 Chunk #50: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:16,628 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:16,629 - load_sales_dw - INFO -   📦 Chunk #51: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:16,862 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:16,862 - load_sales_dw - INFO -   📦 Chunk #52: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:17,111 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:17,112 - load_sales_dw - INFO -   📦 Chunk #53: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:17,363 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:17,364 - load_sales_dw - INFO -   📦 Chunk #54: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:17,576 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:17,576 - load_sales_dw - INFO -   📦 Chunk #55: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:17,864 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:17,865 - load_sales_dw - INFO -   📦 Chunk #56: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:18,124 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:18,124 - load_sales_dw - INFO -   📦 Chunk #57: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:18,420 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:18,421 - load_sales_dw - INFO -   📦 Chunk #58: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:18,679 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:18,680 - load_sales_dw - INFO -   📦 Chunk #59: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:18,935 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:18,936 - load_sales_dw - INFO -   📦 Chunk #60: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:19,187 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:19,188 - load_sales_dw - INFO -   📦 Chunk #61: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:19,451 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:19,451 - load_sales_dw - INFO -   📦 Chunk #62: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:19,695 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:19,695 - load_sales_dw - INFO -   📦 Chunk #63: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:19,959 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:19,959 - load_sales_dw - INFO -   📦 Chunk #64: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:20,229 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:20,230 - load_sales_dw - INFO -   📦 Chunk #65: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:20,483 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:20,484 - load_sales_dw - INFO -   📦 Chunk #66: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:20,777 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:20,777 - load_sales_dw - INFO -   📦 Chunk #67: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:21,038 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:21,039 - load_sales_dw - INFO -   📦 Chunk #68: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:21,330 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:21,330 - load_sales_dw - INFO -   📦 Chunk #69: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:21,650 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:21,650 - load_sales_dw - INFO -   📦 Chunk #70: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:21,972 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:21,972 - load_sales_dw - INFO -   📦 Chunk #71: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:22,221 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:22,221 - load_sales_dw - INFO -   📦 Chunk #72: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:22,443 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:22,443 - load_sales_dw - INFO -   📦 Chunk #73: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:22,702 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:22,703 - load_sales_dw - INFO -   📦 Chunk #74: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:22,959 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:22,960 - load_sales_dw - INFO -   📦 Chunk #75: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:23,259 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:23,259 - load_sales_dw - INFO -   📦 Chunk #76: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:23,501 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:23,501 - load_sales_dw - INFO -   📦 Chunk #77: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:23,769 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:23,770 - load_sales_dw - INFO -   📦 Chunk #78: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:24,005 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:24,005 - load_sales_dw - INFO -   📦 Chunk #79: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:24,228 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:24,228 - load_sales_dw - INFO -   📦 Chunk #80: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:24,480 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:24,481 - load_sales_dw - INFO -   📦 Chunk #81: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:24,695 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:24,695 - load_sales_dw - INFO -   📦 Chunk #82: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:24,942 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:24,943 - load_sales_dw - INFO -   📦 Chunk #83: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:25,196 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:25,196 - load_sales_dw - INFO -   📦 Chunk #84: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:25,432 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:25,432 - load_sales_dw - INFO -   📦 Chunk #85: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:25,686 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:25,687 - load_sales_dw - INFO -   📦 Chunk #86: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:25,942 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:25,942 - load_sales_dw - INFO -   📦 Chunk #87: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:26,179 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:26,179 - load_sales_dw - INFO -   📦 Chunk #88: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:26,410 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:26,411 - load_sales_dw - INFO -   📦 Chunk #89: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:26,640 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:26,640 - load_sales_dw - INFO -   📦 Chunk #90: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:26,864 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:26,864 - load_sales_dw - INFO -   📦 Chunk #91: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:27,098 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:27,098 - load_sales_dw - INFO -   📦 Chunk #92: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:27,318 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:27,319 - load_sales_dw - INFO -   📦 Chunk #93: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:27,563 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:27,563 - load_sales_dw - INFO -   📦 Chunk #94: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:27,790 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:27,791 - load_sales_dw - INFO -   📦 Chunk #95: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:28,021 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:28,021 - load_sales_dw - INFO -   📦 Chunk #96: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:28,300 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:28,300 - load_sales_dw - INFO -   📦 Chunk #97: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:28,567 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:28,567 - load_sales_dw - INFO -   📦 Chunk #98: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:28,805 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:28,805 - load_sales_dw - INFO -   📦 Chunk #99: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:29,050 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:29,051 - load_sales_dw - INFO -   📦 Chunk #100: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:29,300 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:29,300 - load_sales_dw - INFO -   📦 Chunk #101: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:29,535 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:29,536 - load_sales_dw - INFO -   📦 Chunk #102: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:29,795 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:29,795 - load_sales_dw - INFO -   📦 Chunk #103: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:30,054 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:30,054 - load_sales_dw - INFO -   📦 Chunk #104: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:30,334 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:30,335 - load_sales_dw - INFO -   📦 Chunk #105: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:30,609 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:30,610 - load_sales_dw - INFO -   📦 Chunk #106: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:30,907 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:30,908 - load_sales_dw - INFO -   📦 Chunk #107: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:31,160 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:31,160 - load_sales_dw - INFO -   📦 Chunk #108: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:31,415 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:31,416 - load_sales_dw - INFO -   📦 Chunk #109: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:31,651 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:31,651 - load_sales_dw - INFO -   📦 Chunk #110: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:31,874 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:31,875 - load_sales_dw - INFO -   📦 Chunk #111: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:32,104 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:32,105 - load_sales_dw - INFO -   📦 Chunk #112: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:32,355 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:32,355 - load_sales_dw - INFO -   📦 Chunk #113: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:32,596 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:32,596 - load_sales_dw - INFO -   📦 Chunk #114: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:32,832 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:32,833 - load_sales_dw - INFO -   📦 Chunk #115: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:33,076 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:33,076 - load_sales_dw - INFO -   📦 Chunk #116: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:33,338 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:33,339 - load_sales_dw - INFO -   📦 Chunk #117: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:33,595 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:33,595 - load_sales_dw - INFO -   📦 Chunk #118: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:33,856 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:33,857 - load_sales_dw - INFO -   📦 Chunk #119: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:34,110 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:34,111 - load_sales_dw - INFO -   📦 Chunk #120: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:34,341 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:34,341 - load_sales_dw - INFO -   📦 Chunk #121: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:34,587 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:34,588 - load_sales_dw - INFO -   📦 Chunk #122: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:34,836 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:34,836 - load_sales_dw - INFO -   📦 Chunk #123: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:35,058 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:35,059 - load_sales_dw - INFO -   📦 Chunk #124: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:35,342 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:35,343 - load_sales_dw - INFO -   📦 Chunk #125: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:35,615 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:35,615 - load_sales_dw - INFO -   📦 Chunk #126: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:35,850 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:35,850 - load_sales_dw - INFO -   📦 Chunk #127: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:36,090 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:36,090 - load_sales_dw - INFO -   📦 Chunk #128: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:36,329 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:36,329 - load_sales_dw - INFO -   📦 Chunk #129: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:36,599 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:36,599 - load_sales_dw - INFO -   📦 Chunk #130: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:36,835 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:36,835 - load_sales_dw - INFO -   📦 Chunk #131: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:37,075 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:37,076 - load_sales_dw - INFO -   📦 Chunk #132: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:37,302 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:37,302 - load_sales_dw - INFO -   📦 Chunk #133: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:37,566 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:37,567 - load_sales_dw - INFO -   📦 Chunk #134: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:37,800 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:37,800 - load_sales_dw - INFO -   📦 Chunk #135: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:38,019 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:38,019 - load_sales_dw - INFO -   📦 Chunk #136: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:38,285 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:38,285 - load_sales_dw - INFO -   📦 Chunk #137: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:38,533 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:38,533 - load_sales_dw - INFO -   📦 Chunk #138: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:38,813 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:38,814 - load_sales_dw - INFO -   📦 Chunk #139: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:39,040 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:39,040 - load_sales_dw - INFO -   📦 Chunk #140: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:39,261 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:39,261 - load_sales_dw - INFO -   📦 Chunk #141: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:39,480 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:39,480 - load_sales_dw - INFO -   📦 Chunk #142: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:39,787 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:39,787 - load_sales_dw - INFO -   📦 Chunk #143: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:40,005 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:40,005 - load_sales_dw - INFO -   📦 Chunk #144: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:40,238 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:40,239 - load_sales_dw - INFO -   📦 Chunk #145: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:40,511 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:40,511 - load_sales_dw - INFO -   📦 Chunk #146: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:40,792 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:40,793 - load_sales_dw - INFO -   📦 Chunk #147: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:41,042 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:41,043 - load_sales_dw - INFO -   📦 Chunk #148: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:41,316 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:41,317 - load_sales_dw - INFO -   📦 Chunk #149: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:41,590 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:41,591 - load_sales_dw - INFO -   📦 Chunk #150: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:41,847 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:41,848 - load_sales_dw - INFO -   📦 Chunk #151: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:42,095 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:42,095 - load_sales_dw - INFO -   📦 Chunk #152: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:42,326 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:42,327 - load_sales_dw - INFO -   📦 Chunk #153: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:42,565 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:42,565 - load_sales_dw - INFO -   📦 Chunk #154: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:42,787 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:42,788 - load_sales_dw - INFO -   📦 Chunk #155: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:43,030 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:43,030 - load_sales_dw - INFO -   📦 Chunk #156: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:43,263 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:43,263 - load_sales_dw - INFO -   📦 Chunk #157: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:43,523 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:43,523 - load_sales_dw - INFO -   📦 Chunk #158: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:43,789 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:43,789 - load_sales_dw - INFO -   📦 Chunk #159: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:44,068 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:44,069 - load_sales_dw - INFO -   📦 Chunk #160: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:44,296 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:44,296 - load_sales_dw - INFO -   📦 Chunk #161: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:44,531 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:44,531 - load_sales_dw - INFO -   📦 Chunk #162: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:44,758 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:44,758 - load_sales_dw - INFO -   📦 Chunk #163: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:45,008 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:45,008 - load_sales_dw - INFO -   📦 Chunk #164: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:45,279 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:45,280 - load_sales_dw - INFO -   📦 Chunk #165: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:45,522 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:45,523 - load_sales_dw - INFO -   📦 Chunk #166: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:45,760 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:45,760 - load_sales_dw - INFO -   📦 Chunk #167: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:45,998 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:45,998 - load_sales_dw - INFO -   📦 Chunk #168: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:46,217 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:46,218 - load_sales_dw - INFO -   📦 Chunk #169: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:46,440 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:46,440 - load_sales_dw - INFO -   📦 Chunk #170: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:46,684 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:46,685 - load_sales_dw - INFO -   📦 Chunk #171: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:46,915 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:46,916 - load_sales_dw - INFO -   📦 Chunk #172: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:47,150 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:47,150 - load_sales_dw - INFO -   📦 Chunk #173: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:47,378 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:47,378 - load_sales_dw - INFO -   📦 Chunk #174: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:47,623 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:47,623 - load_sales_dw - INFO -   📦 Chunk #175: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:47,872 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:47,872 - load_sales_dw - INFO -   📦 Chunk #176: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:48,133 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:48,134 - load_sales_dw - INFO -   📦 Chunk #177: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:48,352 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:48,352 - load_sales_dw - INFO -   📦 Chunk #178: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:48,571 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:48,571 - load_sales_dw - INFO -   📦 Chunk #179: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:48,821 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:48,821 - load_sales_dw - INFO -   📦 Chunk #180: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:49,059 - loader - INFO - ✨ تعداد 1000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:49,059 - load_sales_dw - INFO -   📦 Chunk #181: 1,000 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:49,138 - loader - INFO - ✨ تعداد 326 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 13:58:49,138 - load_sales_dw - INFO -   📦 Chunk #182: 326 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:49,142 - load_sales_dw - INFO - ✅ مجموع: 181,326 هدر فاکتور بارگذاری شد
+2026-05-23 13:58:49,143 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:58:49,144 - load_sales_dw - INFO - 🔄 شروع بارگذاری ردیف فاکتورهای فروش
+2026-05-23 13:58:49,144 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:58:49,218 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_detail هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 13:58:49,219 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_detail. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 13:58:49,312 - extractor - INFO - ✔️ تمام داده‌های جدول DarkhastFaktorSatr به روز هستند.
+2026-05-23 13:58:49,313 - load_sales_dw - INFO - ✅ مجموع: 0 ردیف فاکتور بارگذاری شد
+2026-05-23 13:58:49,313 - load_sales_dw - INFO - ============================================================
+2026-05-23 13:58:49,313 - load_sales_dw - INFO - 📊 گزارش نهایی بارگذاری فروش:
+2026-05-23 13:58:49,314 - load_sales_dw - INFO -    هدر: success - 181,326 رکورد
+2026-05-23 13:58:49,314 - load_sales_dw - INFO -    ردیف: success - 0 رکورد
+2026-05-23 13:58:49,314 - load_sales_dw - INFO -    مجموع: 181,326 رکورد
+2026-05-23 13:58:49,314 - load_sales_dw - INFO -    زمان: 45.96 ثانیه
+2026-05-23 13:58:49,315 - load_sales_dw - INFO - ============================================================
+2026-05-23 14:55:12,349 - load_sales_dw - INFO - ============================================================
+2026-05-23 14:55:12,350 - load_sales_dw - INFO - 🔄 شروع بارگذاری هدر فاکتورهای فروش
+2026-05-23 14:55:12,350 - load_sales_dw - INFO - ============================================================
+2026-05-23 14:55:12,538 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_header هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 14:55:12,539 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_header. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 14:55:15,232 - loader - INFO - ✨ تعداد 10000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 14:55:15,232 - load_sales_dw - INFO -   📦 Chunk #1: 10,000 هدر فاکتور بارگذاری شد
+2026-05-23 14:55:17,936 - loader - INFO - ✨ تعداد 10000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 14:55:17,936 - load_sales_dw - INFO -   📦 Chunk #2: 10,000 هدر فاکتور بارگذاری شد
+2026-05-23 14:55:20,471 - loader - INFO - ✨ تعداد 10000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 14:55:20,471 - load_sales_dw - INFO -   📦 Chunk #3: 10,000 هدر فاکتور بارگذاری شد
+2026-05-23 14:55:22,931 - loader - INFO - ✨ تعداد 10000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 14:55:22,932 - load_sales_dw - INFO -   📦 Chunk #4: 10,000 هدر فاکتور بارگذاری شد
+2026-05-23 14:55:25,416 - loader - INFO - ✨ تعداد 10000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 14:55:25,417 - load_sales_dw - INFO -   📦 Chunk #5: 10,000 هدر فاکتور بارگذاری شد
+2026-05-23 14:55:28,485 - loader - INFO - ✨ تعداد 10000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 14:55:28,487 - load_sales_dw - INFO -   📦 Chunk #6: 10,000 هدر فاکتور بارگذاری شد
+2026-05-23 14:55:30,910 - loader - INFO - ✨ تعداد 10000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 14:55:30,911 - load_sales_dw - INFO -   📦 Chunk #7: 10,000 هدر فاکتور بارگذاری شد
+2026-05-23 14:55:33,805 - loader - INFO - ✨ تعداد 10000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 14:55:33,806 - load_sales_dw - INFO -   📦 Chunk #8: 10,000 هدر فاکتور بارگذاری شد
+2026-05-23 14:55:37,018 - loader - INFO - ✨ تعداد 10000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 14:55:37,019 - load_sales_dw - INFO -   📦 Chunk #9: 10,000 هدر فاکتور بارگذاری شد
+2026-05-23 14:55:39,869 - loader - INFO - ✨ تعداد 10000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 14:55:39,869 - load_sales_dw - INFO -   📦 Chunk #10: 10,000 هدر فاکتور بارگذاری شد
+2026-05-23 14:55:42,911 - loader - INFO - ✨ تعداد 10000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 14:55:42,912 - load_sales_dw - INFO -   📦 Chunk #11: 10,000 هدر فاکتور بارگذاری شد
+2026-05-23 14:55:45,802 - loader - INFO - ✨ تعداد 10000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 14:55:45,804 - load_sales_dw - INFO -   📦 Chunk #12: 10,000 هدر فاکتور بارگذاری شد
+2026-05-23 14:55:48,822 - loader - INFO - ✨ تعداد 10000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 14:55:48,823 - load_sales_dw - INFO -   📦 Chunk #13: 10,000 هدر فاکتور بارگذاری شد
+2026-05-23 14:55:51,807 - loader - INFO - ✨ تعداد 10000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 14:55:51,810 - load_sales_dw - INFO -   📦 Chunk #14: 10,000 هدر فاکتور بارگذاری شد
+2026-05-23 14:55:54,730 - loader - INFO - ✨ تعداد 10000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 14:55:54,731 - load_sales_dw - INFO -   📦 Chunk #15: 10,000 هدر فاکتور بارگذاری شد
+2026-05-23 14:55:57,671 - loader - INFO - ✨ تعداد 10000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 14:55:57,672 - load_sales_dw - INFO -   📦 Chunk #16: 10,000 هدر فاکتور بارگذاری شد
+2026-05-23 14:56:00,360 - loader - INFO - ✨ تعداد 10000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 14:56:00,361 - load_sales_dw - INFO -   📦 Chunk #17: 10,000 هدر فاکتور بارگذاری شد
+2026-05-23 14:56:03,263 - loader - INFO - ✨ تعداد 10000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 14:56:03,264 - load_sales_dw - INFO -   📦 Chunk #18: 10,000 هدر فاکتور بارگذاری شد
+2026-05-23 14:56:03,776 - loader - INFO - ✨ تعداد 1326 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 14:56:03,777 - load_sales_dw - INFO -   📦 Chunk #19: 1,326 هدر فاکتور بارگذاری شد
+2026-05-23 14:56:03,787 - load_sales_dw - INFO - ✅ مجموع: 181,326 هدر فاکتور بارگذاری شد
+2026-05-23 14:56:03,790 - load_sales_dw - INFO - ============================================================
+2026-05-23 14:56:03,791 - load_sales_dw - INFO - 🔄 شروع بارگذاری ردیف فاکتورهای فروش
+2026-05-23 14:56:03,791 - load_sales_dw - INFO - ============================================================
+2026-05-23 14:56:03,865 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_detail هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 14:56:03,866 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_detail. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 14:56:03,978 - extractor - INFO - ✔️ تمام داده‌های جدول DarkhastFaktorSatr به روز هستند.
+2026-05-23 14:56:03,979 - load_sales_dw - INFO - ✅ مجموع: 0 ردیف فاکتور بارگذاری شد
+2026-05-23 14:56:03,979 - load_sales_dw - INFO - ============================================================
+2026-05-23 14:56:03,979 - load_sales_dw - INFO - 📊 گزارش نهایی بارگذاری فروش:
+2026-05-23 14:56:03,980 - load_sales_dw - INFO -    هدر: success - 181,326 رکورد
+2026-05-23 14:56:03,981 - load_sales_dw - INFO -    ردیف: success - 0 رکورد
+2026-05-23 14:56:03,981 - load_sales_dw - INFO -    مجموع: 181,326 رکورد
+2026-05-23 14:56:03,982 - load_sales_dw - INFO -    زمان: 51.63 ثانیه
+2026-05-23 14:56:03,982 - load_sales_dw - INFO - ============================================================
+2026-05-23 15:00:00,630 - load_sales_dw - INFO - 📊 تجمیع فروش برای تاریخ 20260522
+2026-05-23 15:00:00,752 - load_sales_dw - INFO - ✅ تجمیع روز 20260522: فروش=0, تعداد=0, فاکتور=0
+2026-05-23 16:23:18,977 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:23:18,978 - load_sales_dw - INFO - 🔄 شروع بارگذاری هدر فاکتورهای فروش
+2026-05-23 16:23:18,979 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:23:19,291 - extractor - WARNING - ⚠️ جدول مقصد fact_sales_header هنوز ساخته نشده یا فاقد فیلد زمان است. مقدار پیش‌فرض اعمال شد.
+2026-05-23 16:23:19,292 - extractor - INFO - 🔍 شروع سینک افزایشی برای جدول fact_sales_header. بازه داده‌ها: بعد از [1900-01-01 00:00:00.000]
+2026-05-23 16:23:36,674 - loader - INFO - ✨ تعداد 50000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 16:23:36,677 - load_sales_dw - INFO -   📦 Chunk #1: 50,000 هدر فاکتور بارگذاری شد
+2026-05-23 16:23:54,676 - loader - INFO - ✨ تعداد 50000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 16:23:54,680 - load_sales_dw - INFO -   📦 Chunk #2: 50,000 هدر فاکتور بارگذاری شد
+2026-05-23 16:24:14,589 - loader - INFO - ✨ تعداد 50000 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 16:24:14,594 - load_sales_dw - INFO -   📦 Chunk #3: 50,000 هدر فاکتور بارگذاری شد
+2026-05-23 16:24:48,877 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:24:48,877 - load_sales_dw - INFO - 🔄 شروع بارگذاری هدر فاکتورهای فروش
+2026-05-23 16:24:48,877 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:24:48,971 - load_sales_dw - INFO - 📅 بازه: 2026-04-21 تا 2026-05-20
+2026-05-23 16:24:48,971 - load_sales_dw - ERROR - ❌ خطا در بارگذاری هدر فاکتورها: 'DataExtractor' object has no attribute 'extract_with_custom_query'
+2026-05-23 16:24:48,972 - load_sales_dw - ERROR - فاز ۱ (هدر) با خطا مواجه شد: 'DataExtractor' object has no attribute 'extract_with_custom_query'
+2026-05-23 16:24:48,972 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:24:48,972 - load_sales_dw - INFO - 🔄 شروع بارگذاری ردیف فاکتورهای فروش
+2026-05-23 16:24:48,972 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:24:48,987 - load_sales_dw - INFO - 📅 بازه: 2026-04-21 تا 2026-05-20
+2026-05-23 16:24:48,987 - load_sales_dw - ERROR - ❌ خطا در بارگذاری ردیف فاکتورها: 'DataExtractor' object has no attribute 'extract_with_custom_query'
+2026-05-23 16:24:48,988 - load_sales_dw - ERROR - فاز ۲ (ردیف) با خطا مواجه شد: 'DataExtractor' object has no attribute 'extract_with_custom_query'
+2026-05-23 16:24:48,988 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:24:48,989 - load_sales_dw - INFO - 📊 گزارش نهایی بارگذاری فروش:
+2026-05-23 16:24:48,989 - load_sales_dw - INFO -    هدر: failed - 0 رکورد
+2026-05-23 16:24:48,989 - load_sales_dw - INFO -    ردیف: failed - 0 رکورد
+2026-05-23 16:24:48,990 - load_sales_dw - INFO -    مجموع: 0 رکورد
+2026-05-23 16:24:48,990 - load_sales_dw - INFO -    زمان: 0.11 ثانیه
+2026-05-23 16:24:48,990 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:26:27,826 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:26:27,827 - load_sales_dw - INFO - 🔄 شروع بارگذاری هدر فاکتورهای فروش
+2026-05-23 16:26:27,827 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:26:27,918 - load_sales_dw - INFO - 📅 بازه: 2026-04-21 تا 2026-05-20
+2026-05-23 16:26:34,576 - loader - INFO - ✨ تعداد 17603 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 16:26:34,579 - load_sales_dw - INFO -   📦 Chunk #1: 17,603 هدر فاکتور بارگذاری شد
+2026-05-23 16:26:34,598 - load_sales_dw - INFO - ✅ مجموع: 17,603 هدر فاکتور بارگذاری شد
+2026-05-23 16:26:34,608 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:26:34,608 - load_sales_dw - INFO - 🔄 شروع بارگذاری ردیف فاکتورهای فروش
+2026-05-23 16:26:34,609 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:26:34,625 - load_sales_dw - INFO - 📅 بازه: 2026-04-21 تا 2026-05-20
+2026-05-23 16:26:34,625 - load_sales_dw - ERROR - ❌ خطا در بارگذاری ردیف فاکتورها: 'DataExtractor' object has no attribute 'extract_with_custom_query'
+2026-05-23 16:26:34,625 - load_sales_dw - ERROR - فاز ۲ (ردیف) با خطا مواجه شد: 'DataExtractor' object has no attribute 'extract_with_custom_query'
+2026-05-23 16:26:34,626 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:26:34,626 - load_sales_dw - INFO - 📊 گزارش نهایی بارگذاری فروش:
+2026-05-23 16:26:34,626 - load_sales_dw - INFO -    هدر: success - 17,603 رکورد
+2026-05-23 16:26:34,626 - load_sales_dw - INFO -    ردیف: failed - 0 رکورد
+2026-05-23 16:26:34,627 - load_sales_dw - INFO -    مجموع: 17,603 رکورد
+2026-05-23 16:26:34,629 - load_sales_dw - INFO -    زمان: 6.80 ثانیه
+2026-05-23 16:26:34,629 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:27:47,666 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:27:47,667 - load_sales_dw - INFO - 🔄 شروع بارگذاری هدر فاکتورهای فروش
+2026-05-23 16:27:47,667 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:27:47,756 - load_sales_dw - INFO - 📅 بازه: 2026-04-21 تا 2026-05-20
+2026-05-23 16:27:53,812 - loader - INFO - ✨ تعداد 17603 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 16:27:53,815 - load_sales_dw - INFO -   📦 Chunk #1: 17,603 هدر فاکتور بارگذاری شد
+2026-05-23 16:27:53,831 - load_sales_dw - INFO - ✅ مجموع: 17,603 هدر فاکتور بارگذاری شد
+2026-05-23 16:27:53,837 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:27:53,837 - load_sales_dw - INFO - 🔄 شروع بارگذاری ردیف فاکتورهای فروش
+2026-05-23 16:27:53,838 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:27:53,851 - load_sales_dw - INFO - 📅 بازه: 2026-04-21 تا 2026-05-20
+2026-05-23 16:27:53,852 - load_sales_dw - ERROR - ❌ خطا در بارگذاری ردیف فاکتورها: 'DataExtractor' object has no attribute 'extract_with_custom_query'
+2026-05-23 16:27:53,852 - load_sales_dw - ERROR - فاز ۲ (ردیف) با خطا مواجه شد: 'DataExtractor' object has no attribute 'extract_with_custom_query'
+2026-05-23 16:27:53,852 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:27:53,852 - load_sales_dw - INFO - 📊 گزارش نهایی بارگذاری فروش:
+2026-05-23 16:27:53,853 - load_sales_dw - INFO -    هدر: success - 17,603 رکورد
+2026-05-23 16:27:53,853 - load_sales_dw - INFO -    ردیف: failed - 0 رکورد
+2026-05-23 16:27:53,853 - load_sales_dw - INFO -    مجموع: 17,603 رکورد
+2026-05-23 16:27:53,853 - load_sales_dw - INFO -    زمان: 6.19 ثانیه
+2026-05-23 16:27:53,854 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:29:00,448 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:29:00,449 - load_sales_dw - INFO - 🔄 شروع بارگذاری هدر فاکتورهای فروش
+2026-05-23 16:29:00,449 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:29:00,544 - load_sales_dw - INFO - 📅 بازه: 2026-04-21 تا 2026-05-20
+2026-05-23 16:29:06,675 - loader - INFO - ✨ تعداد 17603 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 16:29:06,679 - load_sales_dw - INFO -   📦 Chunk #1: 17,603 هدر فاکتور بارگذاری شد
+2026-05-23 16:29:06,706 - load_sales_dw - INFO - ✅ مجموع: 17,603 هدر فاکتور بارگذاری شد
+2026-05-23 16:29:06,719 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:29:06,719 - load_sales_dw - INFO - 🔄 شروع بارگذاری ردیف فاکتورهای فروش
+2026-05-23 16:29:06,720 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:29:06,737 - load_sales_dw - INFO - 📅 بازه: 2026-04-21 تا 2026-05-20
+2026-05-23 16:29:33,394 - loader - INFO - ✅ ستون updated_at به fact_sales_detail اضافه شد.
+2026-05-23 16:29:33,400 - loader - WARNING - ⚠️ خطا در مدیریت ستون updated_at برای fact_sales_detail: (psycopg2.errors.UndefinedColumn) column "invoice_date" does not exist
+LINE 3: ...         SET updated_at = COALESCE(modified_date, invoice_da...
+                                                             ^
+
+[SQL: 
+                        UPDATE fact_sales_detail 
+                        SET updated_at = COALESCE(modified_date, invoice_date, created_date, CURRENT_TIMESTAMP)
+                    ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-05-23 16:29:34,723 - loader - ERROR - ❌ شکست عملیات جابه‌جایی انبوه در جدول fact_sales_detail: column "product_code_id" of relation "fact_sales_detail" does not exist
+
+2026-05-23 16:29:34,723 - decorators - WARNING - ⚠️ تلاش 1/3 برای [bulk_copy] ناموفق. خطا: column "product_code_id" of relation "fact_sales_detail" does not exist
+. تلاش مجدد در 5 ثانیه...
+2026-05-23 16:29:41,050 - loader - ERROR - ❌ شکست عملیات جابه‌جایی انبوه در جدول fact_sales_detail: column "product_code_id" of relation "fact_sales_detail" does not exist
+
+2026-05-23 16:29:41,051 - decorators - WARNING - ⚠️ تلاش 2/3 برای [bulk_copy] ناموفق. خطا: column "product_code_id" of relation "fact_sales_detail" does not exist
+. تلاش مجدد در 10 ثانیه...
+2026-05-23 16:29:52,729 - loader - ERROR - ❌ شکست عملیات جابه‌جایی انبوه در جدول fact_sales_detail: column "product_code_id" of relation "fact_sales_detail" does not exist
+
+2026-05-23 16:29:52,732 - decorators - ERROR - 🚨 [bulk_copy] پس از 3 تلاش کاملاً شکست خورد. آخرین خطا: column "product_code_id" of relation "fact_sales_detail" does not exist
+
+2026-05-23 16:29:52,794 - load_sales_dw - ERROR - ❌ خطا در بارگذاری ردیف فاکتورها: column "product_code_id" of relation "fact_sales_detail" does not exist
+
+2026-05-23 16:29:52,795 - load_sales_dw - ERROR - فاز ۲ (ردیف) با خطا مواجه شد: column "product_code_id" of relation "fact_sales_detail" does not exist
+
+2026-05-23 16:29:52,795 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:29:52,795 - load_sales_dw - INFO - 📊 گزارش نهایی بارگذاری فروش:
+2026-05-23 16:29:52,795 - load_sales_dw - INFO -    هدر: success - 17,603 رکورد
+2026-05-23 16:29:52,796 - load_sales_dw - INFO -    ردیف: failed - 0 رکورد
+2026-05-23 16:29:52,796 - load_sales_dw - INFO -    مجموع: 17,603 رکورد
+2026-05-23 16:29:52,796 - load_sales_dw - INFO -    زمان: 52.35 ثانیه
+2026-05-23 16:29:52,796 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:31:25,516 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:31:25,516 - load_sales_dw - INFO - 🔄 شروع بارگذاری هدر فاکتورهای فروش
+2026-05-23 16:31:25,517 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:31:25,620 - load_sales_dw - INFO - 📅 بازه: 2026-04-21 تا 2026-05-20
+2026-05-23 16:31:31,975 - loader - INFO - ✨ تعداد 17603 ردیف با موفقیت در جدول انبار داده (fact_sales_header) لود شد.
+2026-05-23 16:31:31,978 - load_sales_dw - INFO -   📦 Chunk #1: 17,603 هدر فاکتور بارگذاری شد
+2026-05-23 16:31:31,996 - load_sales_dw - INFO - ✅ مجموع: 17,603 هدر فاکتور بارگذاری شد
+2026-05-23 16:31:32,001 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:31:32,001 - load_sales_dw - INFO - 🔄 شروع بارگذاری ردیف فاکتورهای فروش
+2026-05-23 16:31:32,001 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:31:32,013 - load_sales_dw - INFO - 📅 بازه: 2026-04-21 تا 2026-05-20
+2026-05-23 16:32:01,704 - loader - INFO - ✅ ستون updated_at به fact_sales_detail اضافه شد.
+2026-05-23 16:32:01,707 - loader - WARNING - ⚠️ خطا در مدیریت ستون updated_at برای fact_sales_detail: (psycopg2.errors.UndefinedColumn) column "invoice_date" does not exist
+LINE 3: ...         SET updated_at = COALESCE(modified_date, invoice_da...
+                                                             ^
+
+[SQL: 
+                        UPDATE fact_sales_detail 
+                        SET updated_at = COALESCE(modified_date, invoice_date, created_date, CURRENT_TIMESTAMP)
+                    ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-05-23 16:32:04,157 - loader - INFO - ✨ تعداد 50000 ردیف با موفقیت در جدول انبار داده (fact_sales_detail) لود شد.
+2026-05-23 16:32:04,158 - load_sales_dw - INFO -   📦 Chunk #1: 50,000 ردیف فاکتور بارگذاری شد
+2026-05-23 16:32:10,162 - loader - INFO - ✨ تعداد 50000 ردیف با موفقیت در جدول انبار داده (fact_sales_detail) لود شد.
+2026-05-23 16:32:10,166 - load_sales_dw - INFO -   📦 Chunk #2: 50,000 ردیف فاکتور بارگذاری شد
+2026-05-23 16:32:12,032 - loader - INFO - ✨ تعداد 14322 ردیف با موفقیت در جدول انبار داده (fact_sales_detail) لود شد.
+2026-05-23 16:32:12,036 - load_sales_dw - INFO -   📦 Chunk #3: 14,322 ردیف فاکتور بارگذاری شد
+2026-05-23 16:32:12,069 - load_sales_dw - INFO - ✅ مجموع: 114,322 ردیف فاکتور بارگذاری شد
+2026-05-23 16:32:12,075 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:32:12,076 - load_sales_dw - INFO - 📊 گزارش نهایی بارگذاری فروش:
+2026-05-23 16:32:12,077 - load_sales_dw - INFO -    هدر: success - 17,603 رکورد
+2026-05-23 16:32:12,077 - load_sales_dw - INFO -    ردیف: success - 114,322 رکورد
+2026-05-23 16:32:12,078 - load_sales_dw - INFO -    مجموع: 131,925 رکورد
+2026-05-23 16:32:12,078 - load_sales_dw - INFO -    زمان: 46.56 ثانیه
+2026-05-23 16:32:12,079 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:44:25,880 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:44:25,881 - load_sales_dw - INFO - 🔄 شروع بارگذاری هدر فاکتورهای فروش
+2026-05-23 16:44:25,881 - load_sales_dw - INFO - ============================================================
+2026-05-23 16:44:25,989 - load_sales_dw - INFO - 📅 بازه: همه داده‌ها

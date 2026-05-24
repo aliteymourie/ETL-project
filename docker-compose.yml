@@ -1,0 +1,57 @@
+(version: '3.8')
+services:
+	postgres:
+		image: postgres:14
+		restart: unless-stopped
+		env_file: .env
+		environment:
+			POSTGRES_USER: ${TGT_DB_USER}
+			POSTGRES_PASSWORD: ${TGT_DB_PASSWORD}
+			POSTGRES_DB: ${TGT_DB_DATABASE}
+		volumes:
+			- postgres_data:/var/lib/postgresql/data
+		ports:
+			- "5432:5432"
+
+	airflow:
+		image: apache/airflow:2.6.3
+		restart: unless-stopped
+		env_file: .env
+		depends_on:
+			- postgres
+		environment:
+			AIRFLOW__CORE__EXECUTOR: LocalExecutor
+			AIRFLOW__CORE__LOAD_EXAMPLES: 'False'
+			AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${TGT_DB_USER}:${TGT_DB_PASSWORD}@postgres:${TGT_DB_PORT}/${TGT_DB_DATABASE}
+			AIRFLOW__CORE__DAGS_FOLDER: /opt/airflow/dags
+		volumes:
+			- ./dags:/opt/airflow/dags
+			- ./logs:/opt/airflow/logs
+			- ./plugins:/opt/airflow/plugins
+			- ./:/opt/etl
+		ports:
+			- "8080:8080"
+		command: bash -c "airflow db upgrade && airflow users create --username admin --firstname Admin --lastname User --role Admin --email admin@example.com --password admin || true && airflow scheduler & exec airflow webserver"
+
+	metabase:
+		image: metabase/metabase:v0.48.4
+		restart: unless-stopped
+		env_file: .env
+		depends_on:
+			- postgres
+		environment:
+			MB_DB_TYPE: postgres
+			MB_DB_DBNAME: ${TGT_DB_DATABASE}
+			MB_DB_PORT: ${TGT_DB_PORT}
+			MB_DB_USER: ${TGT_DB_USER}
+			MB_DB_PASS: ${TGT_DB_PASSWORD}
+			MB_DB_HOST: postgres
+		ports:
+			- "3000:3000"
+		volumes:
+			- metabase_data:/metabase-data
+
+volumes:
+	postgres_data:
+	metabase_data:
+

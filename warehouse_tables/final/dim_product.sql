@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS dim_product (product_id INTEGER PRIMARY KEY, sku TEXT, name TEXT);

@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS dim_date (date_id INTEGER PRIMARY KEY, date DATE, year INTEGER, month INTEGER, day INTEGER, weekday INTEGER);

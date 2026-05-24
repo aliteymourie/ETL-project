@@ -1,0 +1,16 @@
+source_databases:
+  mssql_pharma:
+    host: ${SRC_DB_HOST}
+    port: ${SRC_DB_PORT}
+    database: ${SRC_DB_DATABASE}
+    user: ${SRC_DB_USER}
+    password: ${SRC_DB_PASSWORD}
+    driver: "ODBC Driver 17 for SQL Server"
+
+target_databases:
+  dw_postgres:
+    host: ${TGT_DB_HOST}
+    port: ${TGT_DB_PORT}
+    database: ${TGT_DB_DATABASE}
+    user: ${TGT_DB_USER}
+    password: ${TGT_DB_PASSWORD}

@@ -51,3 +51,112 @@
 │                                                                     │
 │  👥 مانیتورینگ آنلاین مدیران | ⚡ لود داشبوردها زیر ۲ ثانیه (با ایندکس) │
 └─────────────────────────────────────────────────────────────────────┘
+
+
+
+                                    ┌─────────────┐                          
+                                    │   DimDate   │
+                                    └──────┬──────┘
+                                           │
+┌─────────────┐                     ┌──────┴──────┐                     ┌─────────────┐
+│ DimCustomer │─────────────────────┤             ├─────────────────────│DimDistCenter│
+└─────────────┘                     │             │                     └─────────────┘
+                                    │  FactSales  │
+┌─────────────┐                     │             │                     ┌─────────────┐
+│DimSalesAgent│─────────────────────┤             ├─────────────────────│ DimProduct  │
+└─────────────┘                     └──────┬──────┘                     └──────┬──────┘
+                                           │                                   │
+                                    ┌──────┴──────┐             ┌──────────────┴──────────────┐
+                                    │    (سایر)   │             │                             │
+                                    └─────────────┘     ┌───────┴───────┐             ┌───────┴───────┐
+                                                        │  DimSupplier  │             │  DimGeneric   │
+                                                        └───────────────┘             └───────────────┘
+
+                                    ┌───────────────────┐
+                                    │      DimDate      │
+                                    └─────────┬─────────┘
+                                              │
+ ┌────────────────┐                           │                           ┌────────────────┐
+ │  DimCustomer   ├───────────┐               │               ┌───────────┤   DimProduct   │
+ └────────────────┘           │               │               │           └────────────────┘
+                              ▼               ▼               ▼
+                       ┌─────────────┐ ┌─────────────┐ ┌─────────────┐
+                       │  FactSales  │ │FactInventory│ │FactPurchase │
+                       └──────┬──────┘ └──────┬──────┘ └──────┬──────┘
+                              │               │               │
+ ┌────────────────┐           │               │               │           ┌────────────────┐
+ │ DimDistCenter  ├───────────┼───────────────┼───────────────┼───────────┤   DimVendor    │
+ └────────────────┘           │               │               │           └────────────────┘
+                              ▼               ▼               ▼
+                       ┌─────────────┐ ┌─────────────┐ ┌─────────────┐
+                       │FactTreasury │ │ FactLedger  │ │  FactAsset  │
+                       └──────┬──────┘ └──────┬──────┘ └──────┬──────┘
+                              ▲               ▲               ▲
+                              │               │               │
+                      ┌───────┴───────────────┴───────────────┴───────┐
+                      │                 DimEmployee                   │
+                      └───────────────────────────────────────────────┘
+
+
+                      ===================================================================================================================
+                                      جداول ابعاد مشترک (CONFORMED DIMENSIONS)
+===================================================================================================================
+
+  ┌────────────────────────────────┐       ┌────────────────────────────────┐       ┌────────────────────────────────┐
+  │           DimDate              │       │           DimProduct           │       │          DimCustomer           │
+  ├────────────────────────────────┤       ├────────────────────────────────┤       ├────────────────────────────────┤
+  │ date_key        (PK - Int)     │       │ product_key     (PK - Serial)  │       │ customer_key    (PK - Serial)  │
+  │ Tarikh          (Date)         │       │ ccKala          (Int)          │       │ ccMoshtary      (Int)          │
+  │ Sal             (Int)          │       │ NameKala        (Varchar 256)  │       │ NameMoshtary    (Varchar 256)  │
+  │ Mah             (Int)          │       │ GenericCode     (Varchar 100)  │       │ ccMantagheh     (Int)          │
+  │ NameMah         (Varchar 20)   │       │ GroupDaraeeName (Varchar 150)  │       │ ccShahrMoshtary (Int)          │
+  │ Fasl            (Varchar 15)   │       │ ccTaminKonandeh (Int)          │       │ MablaghEtebar   (Float)        │
+  │ IsTatil         (Boolean)      │       │ NameTaminKonandeh(Varchar 150) │       │ ShomarehHesabNew(Varchar 30)   │
+  └────────────────────────────────┘       │ NameTolidKonandeh(Varchar 150) │       └────────────────────────────────┘
+                                           └────────────────────────────────┘
+  ┌────────────────────────────────┐       ┌────────────────────────────────┐
+  │          DimEmployee           │       │         DimDistCenter          │
+  ├────────────────────────────────┤       ├────────────────────────────────┤
+  │ employee_key    (PK - Serial)  │       │ dist_center_key (PK - Serial)  │
+  │ ccAfrad         (Int)          │       │ ccMarkazPakhsh  (Int)          │
+  │ FullName        (Varchar 150)  │       │ NameMarkazPakhsh(Varchar 100)  │
+  │ IsInListBank    (Boolean)      │       └────────────────────────────────┘
+  │ Meliat          (Varchar 50)   │
+  │ JamdarName      (Varchar 100)  │
+  └────────────────────────────────┘
+
+===================================================================================================================
+                                         جداول واقعیت ماژولار (FACT TABLES)
+===================================================================================================================
+
+  ┌────────────────────────────────┐       ┌────────────────────────────────┐       ┌────────────────────────────────┐
+  │           FactSales            │       │         FactInventory          │       │          FactPurchase          │
+  ├────────────────────────────────┤       ├────────────────────────────────┤       ├────────────────────────────────┤
+  │ date_key           (FK -> Dim) │       │ date_key           (FK -> Dim) │       │ date_key           (FK -> Dim) │
+  │ product_key        (FK -> Dim) │       │ product_key        (FK -> Dim) │       │ product_key        (FK -> Dim) │
+  │ customer_key       (FK -> Dim) │       │ dist_center_key    (FK -> Dim) │       │ dist_center_key    (FK -> Dim) │
+  │ employee_key       (FK -> Dim) │       │ ccAnbar            (Int)       │       │ ccTaminKonandeh    (Int)       │
+  │ dist_center_key    (FK -> Dim) │       ├────────────────────────────────┤       ├────────────────────────────────┤
+  │ ccDarkhastFaktor   (BigInt-DD) │       │ MojodyAnbarKartony (Float)     │       │ AzMablagh          (Float)     │
+  ├────────────────────────────────┤       │ MojodyAnbarTedady  (Float)     │       │ TaMablagh          (Float)     │
+  │ TedadFaktor        (Float)     │       │ MojodyAnbarRialy   (Float)     │       │ TedadKharid        (Float)     │
+  │ TedadFaktorKartony (Float)     │       │ FaktorToziNashodehRialy(Float) │       └────────────────────────────────┘
+  │ FiForosh           (Float)     │       │ Tedad_AghlamNazdik (Float)     │
+  │ MablaghKhalesSatr  (Float)     │       └────────────────────────────────┘
+  │ MablaghTakhfif     (Float)     │
+  └────────────────────────────────┘
+
+  ┌────────────────────────────────┐       ┌────────────────────────────────┐       ┌────────────────────────────────┐
+  │         FactTreasury           │       │           FactLedger           │       │           FactAsset            │
+  ├────────────────────────────────┤       ├────────────────────────────────┤       ├────────────────────────────────┤
+  │ date_key           (FK -> Dim) │       │ date_key           (FK -> Dim) │       │ date_key           (FK -> Dim) │
+  │ customer_key       (FK -> Dim) │       │ dist_center_key    (FK -> Dim) │       │ dist_center_key    (FK -> Dim) │
+  │ employee_key       (FK -> Dim) │       │ employee_key       (FK -> Dim) │       │ employee_key       (FK -> Dim) │
+  │ dist_center_key    (FK -> Dim) │       │ ccTafsily          (Int)       │       │ ccAmval            (Int - DD)  │
+  │ ccSanadDariaft     (Int - DD)  │       │ ccMoien            (Int)       │       ├────────────────────────────────┤
+  ├────────────────────────────────┤       ├────────────────────────────────┤       │ GheymatTamamShodeh (Float)     │
+  │ MablaghSanad       (Float)     │       │ Bed                (Float)     │       │ ArzeshDaftary      (Float)     │
+  │ ChekBargashty      (Float)     │       │ Bes                (Float)     │       │ EstehlakAnbashteh  (Float)     │
+  │ TakhfifNaghdi20    (Float)     │       │ SumBed             (Float)     │       │ DepreciationRate   (Float)     │
+  │ NaghsChek          (Float)     │       │ SumBes             (Float)     │       └────────────────────────────────┘
+  └────────────────────────────────┘       └────────────────────────────────┘

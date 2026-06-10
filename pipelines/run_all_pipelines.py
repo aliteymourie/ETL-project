@@ -29,13 +29,19 @@ SCRIPT_DIR   = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))
 sys.path.insert(0, PROJECT_ROOT)
 
-from pipelines.load_dim_branch            import run_dim_branch_pipeline
-from pipelines.load_dim_seller            import run_dim_seller_pipeline
-from pipelines.load_dim_customer          import run_dim_customer_pipeline
-from pipelines.load_fact_sales_header     import run_fact_sales_header_pipeline
-from pipelines.load_fact_sales_detail     import run_fact_sales_detail_pipeline
-from pipelines.load_fact_inventory_header import run_fact_inventory_header_pipeline
-from pipelines.load_fact_inventory_detail import run_fact_inventory_detail_pipeline
+from pipelines.dimensions.load_dim_branch            import run_dim_branch_pipeline
+from pipelines.dimensions.load_dim_seller            import run_dim_seller_pipeline
+from pipelines.dimensions.load_dim_customer          import run_dim_customer_pipeline
+from pipelines.dimensions.load_dim_product           import run_dim_product_pipeline
+from pipelines.dimensions.load_dim_employee          import run_dim_employee_pipeline
+from pipelines.dimensions.load_dim_dist_center       import run_dim_dist_center_pipeline
+from pipelines.dimensions.load_dim_warehouse         import run_dim_warehouse_pipeline
+from pipelines.dimensions.load_dim_supplier          import run_dim_supplier_pipeline
+from pipelines.dimensions.load_dim_asset_group       import run_dim_asset_group_pipeline
+from pipelines.facts.load_fact_sales_header          import run_fact_sales_header_pipeline
+from pipelines.facts.load_fact_sales_detail          import run_fact_sales_detail_pipeline
+from pipelines.facts.load_fact_inventory_header      import run_fact_inventory_header_pipeline
+from pipelines.facts.load_fact_inventory_detail      import run_fact_inventory_detail_pipeline
 from core.utils.logging import setup_logger
 
 logger = setup_logger("dw_orchestrator")
@@ -95,9 +101,15 @@ def main():
         logger.info("STEP 1: Loading Dimensions (parallel)")
 
         dim_tasks = [
-            ("dim_branch",   run_dim_branch_pipeline,   {}),
-            ("dim_seller",   run_dim_seller_pipeline,   {}),
-            ("dim_customer", run_dim_customer_pipeline,  {"chunk_size": 50_000, "max_workers": workers}),
+            ("dim_branch",      run_dim_branch_pipeline,       {}),
+            ("dim_seller",      run_dim_seller_pipeline,       {}),
+            ("dim_customer",    run_dim_customer_pipeline,     {"chunk_size": 50_000, "max_workers": workers}),
+            ("dim_product",     run_dim_product_pipeline,      {"chunk_size": 50_000, "max_workers": workers}),
+            ("dim_employee",    run_dim_employee_pipeline,     {}),
+            ("dim_dist_center", run_dim_dist_center_pipeline,  {}),
+            ("dim_warehouse",   run_dim_warehouse_pipeline,    {}),
+            ("dim_supplier",    run_dim_supplier_pipeline,     {}),
+            ("dim_asset_group", run_dim_asset_group_pipeline,  {}),
         ]
 
         with ThreadPoolExecutor(max_workers=args.dim_workers) as executor:

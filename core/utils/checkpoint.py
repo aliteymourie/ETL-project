@@ -43,6 +43,7 @@ class ETLCheckpoint:
                 conn.execute(text("""
                     DO $$
                     BEGIN
+                        -- Try PRIMARY KEY on pipeline_name if no PK exists
                         IF NOT EXISTS (
                             SELECT 1 FROM pg_constraint
                             WHERE conrelid = 'etl_metadata.etl_checkpoint'::regclass
@@ -50,6 +51,16 @@ class ETLCheckpoint:
                         ) THEN
                             ALTER TABLE etl_metadata.etl_checkpoint
                                 ADD CONSTRAINT etl_checkpoint_pkey PRIMARY KEY (pipeline_name);
+                        END IF;
+                        -- Fallback: unique index on pipeline_name (table may already have PK on id)
+                        IF NOT EXISTS (
+                            SELECT 1 FROM pg_indexes
+                            WHERE schemaname = 'etl_metadata'
+                              AND tablename   = 'etl_checkpoint'
+                              AND indexname   = 'idx_checkpoint_unique_pipeline'
+                        ) THEN
+                            CREATE UNIQUE INDEX idx_checkpoint_unique_pipeline
+                                ON etl_metadata.etl_checkpoint (pipeline_name);
                         END IF;
                     END;
                     $$;

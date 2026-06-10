@@ -1,9 +1,8 @@
 """
-Dim_Customer Pipeline — بارگذاری بعد مشتریان
+Fact_Sales_Detail Pipeline — بارگذاری سطور فاکتورهای فروش
 
-استراتژی: Incremental Upsert بر اساس customer_key
-مشتریان ممکن است تعداد زیادی داشته باشند؛ به همین دلیل از رویکرد
-chunk-based استفاده می‌شود تا حافظه RAM سرور تحت فشار نباشد.
+استراتژی: Incremental Upsert بر اساس sales_fact_id (PK اصلی سطر)
+watermark: از طریق join با هدر بر اساس ModifiedDate فاکتور
 """
 import pandas as pd
 from io import StringIO
@@ -17,47 +16,61 @@ from core.engine.loader import DataLoader
 from core.utils.checkpoint import ETLCheckpoint
 from core.utils.logging import setup_logger
 
-logger = setup_logger("dim_customer")
+logger = setup_logger("fact_sales_detail")
 
 # ─────────────────────────────────────────────
 # Config
 # ─────────────────────────────────────────────
-PIPELINE_NAME  = "dim_customer"
-TARGET_TABLE   = "dim_customer"
-PK_COLS        = ("customer_key",)
-CHUNK_SIZE     = 50_000          # تعداد ردیف در هر chunk
+PIPELINE_NAME     = "fact_sales_detail"
+TARGET_TABLE      = "fact_sales_detail"
+PK_COLS           = ("sales_fact_id",)
+JALALI_1403_START = "2024-03-20 00:00:00"
 
 FINAL_COLS = [
-    "customer_key",
-    "customer_name",
-    "customer_status_code",
-    "customer_intro_date",
-    "customer_name_summary",
-    "customer_city_name",
-    "customer_ownership_type",
+    "sales_fact_id",
+    "invoice_id",
+    "fiscal_year",
+    "product_key",
+    "quantity_carton",
+    "quantity_box",
+    "quantity_unit",
+    "unit_price",
+    "row_discount_amount",
+    "row_tax",
+    "row_surcharge",
+    "row_net_amount",
     "etl_updated_at",
 ]
 
-INT_COLS = {"customer_key", "customer_status_code"}
+INT_COLS    = {"sales_fact_id", "invoice_id", "fiscal_year", "product_key"}
+NUMERIC_COLS = {
+    "quantity_carton", "quantity_box", "quantity_unit",
+    "unit_price", "row_discount_amount", "row_tax", "row_surcharge", "row_net_amount",
+}
 
 # ─────────────────────────────────────────────
 # DDL
 # ─────────────────────────────────────────────
-DDL_DIM_CUSTOMER = """
-CREATE TABLE IF NOT EXISTS dim_customer (
-    customer_key            INT             NOT NULL,
-    customer_name           VARCHAR(256),
-    customer_status_code    SMALLINT,
-    customer_intro_date     TIMESTAMP,
-    customer_name_summary   VARCHAR(256),
-    customer_city_name      VARCHAR(100),
-    customer_ownership_type VARCHAR(100),
-    etl_updated_at          TIMESTAMP       DEFAULT NOW(),
-    PRIMARY KEY (customer_key)
+DDL_FACT_SALES_DETAIL = """
+CREATE TABLE IF NOT EXISTS fact_sales_detail (
+    sales_fact_id       BIGINT          NOT NULL,
+    invoice_id          BIGINT          NOT NULL,
+    fiscal_year         SMALLINT        NOT NULL,
+    product_key         INT,
+    quantity_carton     NUMERIC(18,4),
+    quantity_box        NUMERIC(18,4),
+    quantity_unit       NUMERIC(18,4),
+    unit_price          NUMERIC(18,2),
+    row_discount_amount NUMERIC(18,2),
+    row_tax             NUMERIC(18,2),
+    row_surcharge       NUMERIC(18,2),
+    row_net_amount      NUMERIC(18,2),
+    etl_updated_at      TIMESTAMP       DEFAULT NOW(),
+    PRIMARY KEY (sales_fact_id)
 );
-CREATE INDEX IF NOT EXISTS idx_dim_customer_key    ON dim_customer (customer_key);
-CREATE INDEX IF NOT EXISTS idx_dim_customer_status ON dim_customer (customer_status_code);
-CREATE INDEX IF NOT EXISTS idx_dim_customer_city   ON dim_customer (customer_city_name);
+CREATE INDEX IF NOT EXISTS idx_fsd_invoice_id   ON fact_sales_detail (invoice_id, fiscal_year);
+CREATE INDEX IF NOT EXISTS idx_fsd_product_key  ON fact_sales_detail (product_key);
+CREATE INDEX IF NOT EXISTS idx_fsd_fiscal_year  ON fact_sales_detail (fiscal_year);
 """
 
 DDL_CHECKPOINT = """
@@ -91,28 +104,39 @@ $$;
 # ─────────────────────────────────────────────
 MIN_MAX_SQL = """
 SELECT
-    MIN(m.ccMoshtary) AS min_id,
-    MAX(m.ccMoshtary) AS max_id,
-    COUNT(*)          AS total_rows
-FROM Pakhsh.Sales.Moshtary m
+    MIN(dfs.ccDarkhastFaktorSatr) AS min_id,
+    MAX(dfs.ccDarkhastFaktorSatr) AS max_id,
+    COUNT(*)                      AS total_rows
+FROM Pakhsh.Sales.DarkhastFaktorSatr dfs
+INNER JOIN Pakhsh.Sales.DarkhastFaktor df
+    ON  df.ccDarkhastFaktor = dfs.ccDarkhastFaktor
+    AND df.Sal              = dfs.Sal
+WHERE df.TarikhFaktor IS NOT NULL
+  AND df.ModifiedDate >= CONVERT(DATETIME, '{last_modified}', 120)
 """
 
 EXTRACT_SQL = """
 SELECT
-    m.ccMoshtary                        AS customer_key,
-    m.NameMoshtary                      AS customer_name,
-    m.CodeVazeiat                       AS customer_status_code,
-    m.TarikhMoarefiMoshtary             AS customer_intro_date,
-    m.NameTablo                         AS customer_name_summary,
-    city.NameMahal                      AS customer_city_name,
-    mnm.NameNoeMalekiatMoshtary         AS customer_ownership_type
-FROM Pakhsh.Sales.Moshtary m
-LEFT JOIN Pakhsh.Sales.NoeMalekiatMoshtary mnm
-    ON m.ccNoeMalekiatMoshtary = mnm.ccNoeMalekiatMoshtary
-LEFT JOIN Pakhsh.Global.Mahal city
-    ON m.ccMahaleh = city.ccMahal
-WHERE m.ccMoshtary BETWEEN {start_id} AND {end_id}
-ORDER BY m.ccMoshtary
+    dfs.ccDarkhastFaktorSatr                AS sales_fact_id,
+    dfs.ccDarkhastFaktor                    AS invoice_id,
+    dfs.Sal                                 AS fiscal_year,
+    dfs.ccKala                              AS product_key,
+    ISNULL(dfs.Tedad1, 0)                   AS quantity_carton,
+    ISNULL(dfs.Tedad2, 0)                   AS quantity_box,
+    ISNULL(dfs.Tedad3, 0)                   AS quantity_unit,
+    ISNULL(dfs.MablaghForosh, 0)            AS unit_price,
+    ISNULL(dfs.MablaghTakhfifFaktor, 0)     AS row_discount_amount,
+    ISNULL(dfs.Maliat, 0)                   AS row_tax,
+    ISNULL(dfs.Avarez, 0)                   AS row_surcharge,
+    ISNULL(dfs.MablaghForoshKhalesKala, 0)  AS row_net_amount
+FROM Pakhsh.Sales.DarkhastFaktorSatr dfs
+INNER JOIN Pakhsh.Sales.DarkhastFaktor df
+    ON  df.ccDarkhastFaktor = dfs.ccDarkhastFaktor
+    AND df.Sal              = dfs.Sal
+WHERE df.TarikhFaktor IS NOT NULL
+  AND df.ModifiedDate >= CONVERT(DATETIME, '{last_modified}', 120)
+  AND dfs.ccDarkhastFaktorSatr BETWEEN {start_id} AND {end_id}
+ORDER BY dfs.ccDarkhastFaktorSatr
 """
 
 # ─────────────────────────────────────────────
@@ -153,26 +177,26 @@ def transform(df: pd.DataFrame) -> pd.DataFrame:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors="coerce").astype("Int64")
 
-    if "customer_intro_date" in df.columns:
-        df["customer_intro_date"] = pd.to_datetime(df["customer_intro_date"], errors="coerce")
+    for col in NUMERIC_COLS:
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors="coerce")
 
     df["etl_updated_at"] = datetime.now()
     return df.reindex(columns=FINAL_COLS)
 
 
-def process_chunk(start_id: int, end_id: int):
-    """استخراج و لود یک chunk از مشتریان"""
+def process_chunk(start_id: int, end_id: int, last_modified: str):
     extractor = DataExtractor()
     loader    = DataLoader()
 
-    sql   = EXTRACT_SQL.format(start_id=start_id, end_id=end_id)
+    sql   = EXTRACT_SQL.format(last_modified=last_modified, start_id=start_id, end_id=end_id)
     chunk = pd.read_sql(sql, extractor.src_engine)
 
     if chunk.empty:
         return 0, 0
 
     rows_from_db = len(chunk)
-    chunk = transform(chunk)
+    chunk        = transform(chunk)
 
     cols_to_load = [c for c in FINAL_COLS if c != "etl_updated_at"]
     upsert_sql   = build_upsert_sql(cols_to_load)
@@ -183,26 +207,27 @@ def process_chunk(start_id: int, end_id: int):
     )
     output.seek(0)
 
-    try:
-        with loader.tgt_engine.begin() as conn:
-            with conn.connection.cursor() as cursor:
-                cursor.execute(
-                    "CREATE TEMP TABLE tmp_staging "
-                    "(LIKE dim_customer EXCLUDING INDEXES EXCLUDING CONSTRAINTS) "
-                    "ON COMMIT DROP;"
-                )
-                cursor.copy_from(output, "tmp_staging", columns=cols_to_load, null="\\N")
-                cursor.execute(upsert_sql)
-        return rows_from_db, len(chunk)
-    except Exception as e:
-        logger.error(f"chunk failed range={start_id}-{end_id}: {e}")
-        raise
+    with loader.tgt_engine.begin() as conn:
+        with conn.connection.cursor() as cursor:
+            cursor.execute(
+                "CREATE TEMP TABLE tmp_staging "
+                "(LIKE fact_sales_detail EXCLUDING INDEXES EXCLUDING CONSTRAINTS) "
+                "ON COMMIT DROP;"
+            )
+            cursor.copy_from(output, "tmp_staging", columns=cols_to_load, null="\\N")
+            cursor.execute(upsert_sql)
+
+    return rows_from_db, len(chunk)
 
 
 # ─────────────────────────────────────────────
 # Main Pipeline
 # ─────────────────────────────────────────────
-def run_dim_customer_pipeline(chunk_size: int = CHUNK_SIZE, max_workers: int = 4, max_rows: int = None) -> int:
+def run_fact_sales_detail_pipeline(
+    chunk_size: int  = 500_000,
+    max_workers: int = 4,
+    max_rows: int    = None,
+) -> int:
     logger.info("=" * 60)
     logger.info(f"Starting {PIPELINE_NAME} pipeline (Incremental Upsert)")
     start_time = datetime.now()
@@ -212,24 +237,31 @@ def run_dim_customer_pipeline(chunk_size: int = CHUNK_SIZE, max_workers: int = 4
     checkpoint = ETLCheckpoint(loader)
 
     try:
-        execute_ddl(loader, DDL_DIM_CUSTOMER, TARGET_TABLE)
+        execute_ddl(loader, DDL_FACT_SALES_DETAIL, TARGET_TABLE)
         try:
             execute_ddl(loader, "CREATE SCHEMA IF NOT EXISTS etl_metadata;", "etl_metadata schema")
             execute_ddl(loader, DDL_CHECKPOINT, "etl_metadata.etl_checkpoint")
         except Exception as e:
             logger.warning(f"metadata setup skipped: {e}")
 
-        # تعیین بازه ID‌ها از منبع
-        meta = pd.read_sql(MIN_MAX_SQL, extractor.src_engine)
+        last_run = checkpoint.get_last_success(PIPELINE_NAME)
+        last_modified = (
+            str(last_run["last_to_value"])[:19].replace("T", " ")
+            if last_run and last_run.get("last_to_value")
+            else JALALI_1403_START
+        )
+        logger.info(f"ModifiedDate lower bound: {last_modified}")
+
+        meta = pd.read_sql(MIN_MAX_SQL.format(last_modified=last_modified), extractor.src_engine)
         min_id    = int(meta["min_id"].iloc[0]) if pd.notna(meta["min_id"].iloc[0]) else 0
         max_id    = int(meta["max_id"].iloc[0]) if pd.notna(meta["max_id"].iloc[0]) else 0
         total_est = int(meta["total_rows"].iloc[0]) if pd.notna(meta["total_rows"].iloc[0]) else 0
 
         if min_id == 0 or max_id == 0:
-            logger.info("No rows found in source.")
+            logger.info("No new rows found.")
             return 0
 
-        logger.info(f"Source: {total_est:,} rows | ID range {min_id:,} → {max_id:,}")
+        logger.info(f"Source: ~{total_est:,} rows | ID range {min_id:,} → {max_id:,}")
 
         ranges       = [(s, min(s + chunk_size - 1, max_id)) for s in range(min_id, max_id + 1, chunk_size)]
         total_chunks = len(ranges)
@@ -239,7 +271,10 @@ def run_dim_customer_pipeline(chunk_size: int = CHUNK_SIZE, max_workers: int = 4
         logger.info(f"Chunks planned: {total_chunks:,} (chunk_size={chunk_size:,}, workers={max_workers})")
 
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            futures = {executor.submit(process_chunk, s, e): (s, e) for s, e in ranges}
+            futures = {
+                executor.submit(process_chunk, s, e, last_modified): (s, e)
+                for s, e in ranges
+            }
             for future in as_completed(futures):
                 start, end = futures[future]
                 completed += 1
@@ -253,15 +288,15 @@ def run_dim_customer_pipeline(chunk_size: int = CHUNK_SIZE, max_workers: int = 4
                     )
                     if max_rows and total_rows >= max_rows:
                         logger.info(f"max_rows cap reached ({total_rows:,}). Stopping.")
-                        for f in futures:
-                            f.cancel()
                         break
                 except Exception as e:
                     logger.error(f"chunk failed range={start}-{end}: {e}")
 
+        run_end_ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         checkpoint.save_checkpoint(
             PIPELINE_NAME, "SUCCESS", total_rows,
-            to_value=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            from_value=last_modified,
+            to_value=run_end_ts if total_rows > 0 else last_modified,
         )
 
         elapsed = (datetime.now() - start_time).total_seconds()
@@ -275,4 +310,4 @@ def run_dim_customer_pipeline(chunk_size: int = CHUNK_SIZE, max_workers: int = 4
 
 
 if __name__ == "__main__":
-    run_dim_customer_pipeline(chunk_size=50_000, max_workers=4)
+    run_fact_sales_detail_pipeline(chunk_size=500_000, max_workers=4)

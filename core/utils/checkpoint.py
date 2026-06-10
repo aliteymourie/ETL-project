@@ -29,6 +29,31 @@ class ETLCheckpoint:
                         updated_at TIMESTAMP DEFAULT NOW()
                     )
                 """))
+                for ddl in (
+                    "ALTER TABLE etl_metadata.etl_checkpoint ADD COLUMN IF NOT EXISTS last_run_at TIMESTAMP",
+                    "ALTER TABLE etl_metadata.etl_checkpoint ADD COLUMN IF NOT EXISTS last_success_at TIMESTAMP",
+                    "ALTER TABLE etl_metadata.etl_checkpoint ADD COLUMN IF NOT EXISTS last_from_value VARCHAR(100)",
+                    "ALTER TABLE etl_metadata.etl_checkpoint ADD COLUMN IF NOT EXISTS last_to_value VARCHAR(100)",
+                    "ALTER TABLE etl_metadata.etl_checkpoint ADD COLUMN IF NOT EXISTS rows_processed INTEGER DEFAULT 0",
+                    "ALTER TABLE etl_metadata.etl_checkpoint ADD COLUMN IF NOT EXISTS status VARCHAR(20)",
+                    "ALTER TABLE etl_metadata.etl_checkpoint ADD COLUMN IF NOT EXISTS error_message TEXT",
+                    "ALTER TABLE etl_metadata.etl_checkpoint ADD COLUMN IF NOT EXISTS updated_at TIMESTAMP DEFAULT NOW()",
+                ):
+                    conn.execute(text(ddl))
+                conn.execute(text("""
+                    DO $$
+                    BEGIN
+                        IF NOT EXISTS (
+                            SELECT 1 FROM pg_constraint
+                            WHERE conrelid = 'etl_metadata.etl_checkpoint'::regclass
+                              AND contype  = 'p'
+                        ) THEN
+                            ALTER TABLE etl_metadata.etl_checkpoint
+                                ADD CONSTRAINT etl_checkpoint_pkey PRIMARY KEY (pipeline_name);
+                        END IF;
+                    END;
+                    $$;
+                """))
                 conn.commit()
         except Exception as e:
             logger.error(f"خطا در ایجاد جدول checkpoint: {e}")
